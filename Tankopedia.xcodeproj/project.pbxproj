@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BBACA35827DBDB580082FED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA35727DBDB580082FED3 /* AppDelegate.swift */; };
+		BBACA35A27DBDB580082FED3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA35927DBDB580082FED3 /* SceneDelegate.swift */; };
+		BBACA35C27DBDB580082FED3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA35B27DBDB580082FED3 /* ViewController.swift */; };
+		BBACA35F27DBDB580082FED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBACA35D27DBDB580082FED3 /* Main.storyboard */; };
+		BBACA36227DBDB580082FED3 /* Tankopedia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBACA36027DBDB580082FED3 /* Tankopedia.xcdatamodeld */; };
+		BBACA36427DBDB590082FED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBACA36327DBDB590082FED3 /* Assets.xcassets */; };
+		BBACA36727DBDB590082FED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */; };
+		BBACA37227DBDB590082FED3 /* TankopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA37127DBDB590082FED3 /* TankopediaTests.swift */; };
+		BBACA37C27DBDB590082FED3 /* TankopediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA37B27DBDB590082FED3 /* TankopediaUITests.swift */; };
+		BBACA37E27DBDB590082FED3 /* TankopediaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA37D27DBDB590082FED3 /* TankopediaUITestsLaunchTests.swift */; };
+		BBACA38B27DBDC190082FED3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA38A27DBDC190082FED3 /* APIClient.swift */; };
+		BBACA38D27DBDD0D0082FED3 /* StringLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA38C27DBDD0D0082FED3 /* StringLocalization.swift */; };
+		BBACA39027DBDD460082FED3 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA38F27DBDD460082FED3 /* BundleHelper.swift */; };
+		BBACA39227DBDED80082FED3 /* ResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA39127DBDED80082FED3 /* ResponseItem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBACA36E27DBDB590082FED3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBACA34C27DBDB580082FED3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBACA35327DBDB580082FED3;
+			remoteInfo = Tankopedia;
+		};
+		BBACA37827DBDB590082FED3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBACA34C27DBDB580082FED3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBACA35327DBDB580082FED3;
+			remoteInfo = Tankopedia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BBACA35427DBDB580082FED3 /* Tankopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tankopedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBACA35727DBDB580082FED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BBACA35927DBDB580082FED3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BBACA35B27DBDB580082FED3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BBACA35E27DBDB580082FED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBACA36127DBDB580082FED3 /* Tankopedia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tankopedia.xcdatamodel; sourceTree = "<group>"; };
+		BBACA36327DBDB590082FED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBACA36627DBDB590082FED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBACA36827DBDB590082FED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBACA36D27DBDB590082FED3 /* TankopediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TankopediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBACA37127DBDB590082FED3 /* TankopediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankopediaTests.swift; sourceTree = "<group>"; };
+		BBACA37727DBDB590082FED3 /* TankopediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TankopediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBACA37B27DBDB590082FED3 /* TankopediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankopediaUITests.swift; sourceTree = "<group>"; };
+		BBACA37D27DBDB590082FED3 /* TankopediaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankopediaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BBACA38A27DBDC190082FED3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		BBACA38C27DBDD0D0082FED3 /* StringLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLocalization.swift; sourceTree = "<group>"; };
+		BBACA38F27DBDD460082FED3 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		BBACA39127DBDED80082FED3 /* ResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseItem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBACA35127DBDB580082FED3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBACA36A27DBDB590082FED3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBACA37427DBDB590082FED3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBACA34B27DBDB580082FED3 = {
+			isa = PBXGroup;
+			children = (
+				BBACA35627DBDB580082FED3 /* Tankopedia */,
+				BBACA37027DBDB590082FED3 /* TankopediaTests */,
+				BBACA37A27DBDB590082FED3 /* TankopediaUITests */,
+				BBACA35527DBDB580082FED3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BBACA35527DBDB580082FED3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBACA35427DBDB580082FED3 /* Tankopedia.app */,
+				BBACA36D27DBDB590082FED3 /* TankopediaTests.xctest */,
+				BBACA37727DBDB590082FED3 /* TankopediaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBACA35627DBDB580082FED3 /* Tankopedia */ = {
+			isa = PBXGroup;
+			children = (
+				BBACA38E27DBDD380082FED3 /* Utils */,
+				BBACA38A27DBDC190082FED3 /* APIClient.swift */,
+				BBACA35727DBDB580082FED3 /* AppDelegate.swift */,
+				BBACA35927DBDB580082FED3 /* SceneDelegate.swift */,
+				BBACA35B27DBDB580082FED3 /* ViewController.swift */,
+				BBACA35D27DBDB580082FED3 /* Main.storyboard */,
+				BBACA36327DBDB590082FED3 /* Assets.xcassets */,
+				BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */,
+				BBACA36827DBDB590082FED3 /* Info.plist */,
+				BBACA36027DBDB580082FED3 /* Tankopedia.xcdatamodeld */,
+				BBACA39127DBDED80082FED3 /* ResponseItem.swift */,
+			);
+			path = Tankopedia;
+			sourceTree = "<group>";
+		};
+		BBACA37027DBDB590082FED3 /* TankopediaTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBACA37127DBDB590082FED3 /* TankopediaTests.swift */,
+			);
+			path = TankopediaTests;
+			sourceTree = "<group>";
+		};
+		BBACA37A27DBDB590082FED3 /* TankopediaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BBACA37B27DBDB590082FED3 /* TankopediaUITests.swift */,
+				BBACA37D27DBDB590082FED3 /* TankopediaUITestsLaunchTests.swift */,
+			);
+			path = TankopediaUITests;
+			sourceTree = "<group>";
+		};
+		BBACA38E27DBDD380082FED3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BBACA38C27DBDD0D0082FED3 /* StringLocalization.swift */,
+				BBACA38F27DBDD460082FED3 /* BundleHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBACA35327DBDB580082FED3 /* Tankopedia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBACA38127DBDB590082FED3 /* Build configuration list for PBXNativeTarget "Tankopedia" */;
+			buildPhases = (
+				BBACA35027DBDB580082FED3 /* Sources */,
+				BBACA35127DBDB580082FED3 /* Frameworks */,
+				BBACA35227DBDB580082FED3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tankopedia;
+			productName = Tankopedia;
+			productReference = BBACA35427DBDB580082FED3 /* Tankopedia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBACA36C27DBDB590082FED3 /* TankopediaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBACA38427DBDB590082FED3 /* Build configuration list for PBXNativeTarget "TankopediaTests" */;
+			buildPhases = (
+				BBACA36927DBDB590082FED3 /* Sources */,
+				BBACA36A27DBDB590082FED3 /* Frameworks */,
+				BBACA36B27DBDB590082FED3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBACA36F27DBDB590082FED3 /* PBXTargetDependency */,
+			);
+			name = TankopediaTests;
+			productName = TankopediaTests;
+			productReference = BBACA36D27DBDB590082FED3 /* TankopediaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BBACA37627DBDB590082FED3 /* TankopediaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBACA38727DBDB590082FED3 /* Build configuration list for PBXNativeTarget "TankopediaUITests" */;
+			buildPhases = (
+				BBACA37327DBDB590082FED3 /* Sources */,
+				BBACA37427DBDB590082FED3 /* Frameworks */,
+				BBACA37527DBDB590082FED3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBACA37927DBDB590082FED3 /* PBXTargetDependency */,
+			);
+			name = TankopediaUITests;
+			productName = TankopediaUITests;
+			productReference = BBACA37727DBDB590082FED3 /* TankopediaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBACA34C27DBDB580082FED3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					BBACA35327DBDB580082FED3 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					BBACA36C27DBDB590082FED3 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = BBACA35327DBDB580082FED3;
+					};
+					BBACA37627DBDB590082FED3 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = BBACA35327DBDB580082FED3;
+					};
+				};
+			};
+			buildConfigurationList = BBACA34F27DBDB580082FED3 /* Build configuration list for PBXProject "Tankopedia" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBACA34B27DBDB580082FED3;
+			productRefGroup = BBACA35527DBDB580082FED3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBACA35327DBDB580082FED3 /* Tankopedia */,
+				BBACA36C27DBDB590082FED3 /* TankopediaTests */,
+				BBACA37627DBDB590082FED3 /* TankopediaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBACA35227DBDB580082FED3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBACA36727DBDB590082FED3 /* LaunchScreen.storyboard in Resources */,
+				BBACA36427DBDB590082FED3 /* Assets.xcassets in Resources */,
+				BBACA35F27DBDB580082FED3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBACA36B27DBDB590082FED3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBACA37527DBDB590082FED3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBACA35027DBDB580082FED3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBACA35C27DBDB580082FED3 /* ViewController.swift in Sources */,
+				BBACA38D27DBDD0D0082FED3 /* StringLocalization.swift in Sources */,
+				BBACA35827DBDB580082FED3 /* AppDelegate.swift in Sources */,
+				BBACA39227DBDED80082FED3 /* ResponseItem.swift in Sources */,
+				BBACA35A27DBDB580082FED3 /* SceneDelegate.swift in Sources */,
+				BBACA38B27DBDC190082FED3 /* APIClient.swift in Sources */,
+				BBACA39027DBDD460082FED3 /* BundleHelper.swift in Sources */,
+				BBACA36227DBDB580082FED3 /* Tankopedia.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBACA36927DBDB590082FED3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBACA37227DBDB590082FED3 /* TankopediaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBACA37327DBDB590082FED3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBACA37E27DBDB590082FED3 /* TankopediaUITestsLaunchTests.swift in Sources */,
+				BBACA37C27DBDB590082FED3 /* TankopediaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBACA36F27DBDB590082FED3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBACA35327DBDB580082FED3 /* Tankopedia */;
+			targetProxy = BBACA36E27DBDB590082FED3 /* PBXContainerItemProxy */;
+		};
+		BBACA37927DBDB590082FED3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBACA35327DBDB580082FED3 /* Tankopedia */;
+			targetProxy = BBACA37827DBDB590082FED3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BBACA35D27DBDB580082FED3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBACA35E27DBDB580082FED3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBACA36627DBDB590082FED3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BBACA37F27DBDB590082FED3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBACA38027DBDB590082FED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBACA38227DBDB590082FED3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47XAJM48N4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tankopedia/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjcn1337.Tankopedia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BBACA38327DBDB590082FED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47XAJM48N4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tankopedia/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjcn1337.Tankopedia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BBACA38527DBDB590082FED3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47XAJM48N4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjcn1337.TankopediaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tankopedia.app/Tankopedia";
+			};
+			name = Debug;
+		};
+		BBACA38627DBDB590082FED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47XAJM48N4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjcn1337.TankopediaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tankopedia.app/Tankopedia";
+			};
+			name = Release;
+		};
+		BBACA38827DBDB590082FED3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47XAJM48N4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjcn1337.TankopediaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tankopedia;
+			};
+			name = Debug;
+		};
+		BBACA38927DBDB590082FED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47XAJM48N4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjcn1337.TankopediaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tankopedia;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBACA34F27DBDB580082FED3 /* Build configuration list for PBXProject "Tankopedia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBACA37F27DBDB590082FED3 /* Debug */,
+				BBACA38027DBDB590082FED3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBACA38127DBDB590082FED3 /* Build configuration list for PBXNativeTarget "Tankopedia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBACA38227DBDB590082FED3 /* Debug */,
+				BBACA38327DBDB590082FED3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBACA38427DBDB590082FED3 /* Build configuration list for PBXNativeTarget "TankopediaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBACA38527DBDB590082FED3 /* Debug */,
+				BBACA38627DBDB590082FED3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBACA38727DBDB590082FED3 /* Build configuration list for PBXNativeTarget "TankopediaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBACA38827DBDB590082FED3 /* Debug */,
+				BBACA38927DBDB590082FED3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BBACA36027DBDB580082FED3 /* Tankopedia.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BBACA36127DBDB580082FED3 /* Tankopedia.xcdatamodel */,
+			);
+			currentVersion = BBACA36127DBDB580082FED3 /* Tankopedia.xcdatamodel */;
+			path = Tankopedia.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BBACA34C27DBDB580082FED3 /* Project object */;
+}
