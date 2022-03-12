@@ -7,23 +7,25 @@
 
 import Foundation
 
-public enum HTTPMethod: String {
+fileprivate enum APIConstants {
+    static let baseURLString = "https://api.worldoftanks.ru/wot/encyclopedia"
+    static let vehiclesPath = "/vehicles/"
+    static let applicationID = "175e7c263ea214a8c9df975c6b981e9a"
+}
+
+fileprivate enum HTTPMethod: String {
     case get = "GET"
     case put = "PUT"
     case post = "POST"
     case delete = "DELETE"
-    case head = "HEAD"
-    case options = "OPTIONS"
-    case trace = "TRACE"
-    case connect = "CONNECT"
 }
 
-public struct HTTPHeader {
+fileprivate struct HTTPHeader {
     let field: String
     let value: String
 }
 
-public class APIRequest {
+fileprivate class APIRequest {
     let method: HTTPMethod
     let path: String
     var queryItems: [URLQueryItem]?
@@ -42,10 +44,11 @@ public class APIRequest {
     }
 }
 
-public struct APIResponse<Body> {
+fileprivate struct APIResponse<Body> {
     let statusCode: Int
     let body: Body
 }
+
 
 extension APIResponse where Body == Data? {
     func decode<BodyType: Decodable>(to type: BodyType.Type) throws -> APIResponse<BodyType> {
@@ -62,7 +65,7 @@ public enum APIError: String, LocalizedError {
     case invalidURL
     case requestFailed
     case decodingFailure
-    case fieldNotFound
+    case methodNotFound
     
     public var errorDescription: String? {
         switch self {
@@ -72,14 +75,14 @@ public enum APIError: String, LocalizedError {
             return tr("error.request_failed")
         case .decodingFailure:
             return "Unable to parse response."
-        case .fieldNotFound:
+        case .methodNotFound:
             return tr("error.face_not_found")
         }
         
     }
 }
 
-public enum APIResult<Body> {
+private enum APIResult<Body> {
     case success(APIResponse<Body>)
     case failure(APIError)
 }
@@ -88,17 +91,17 @@ public struct APIClient {
     public init() {
     }
     
-    public typealias APIClientCompletion = (APIResult<Data?>) -> Void
+    private typealias APIClientCompletion = (APIResult<Data?>) -> Void
 
     private let session = URLSession.shared
 
-    static let baseURL = URL(string: "https://api.worldoftanks.ru/wot/encyclopedia")!
+    private let baseURL = URL(string: APIConstants.baseURLString)!
     
-    public func perform(_ request: APIRequest,
+    private func perform(_ request: APIRequest,
                  timeoutInterval: TimeInterval = 30.0,
                  cachePolicy: URLRequest.CachePolicy = .useProtocolCachePolicy,
                  completion: @escaping APIClientCompletion) {
-        let baseURL = APIClient.baseURL
+        let baseURL = baseURL
         var urlComponents = URLComponents()
         urlComponents.scheme = baseURL.scheme
         urlComponents.host = baseURL.host
@@ -136,11 +139,11 @@ public struct APIClient {
 }
 
 extension APIClient {
-    public func getVehicles(completion: ((Result<[ResponseItem], APIError>)->Void)?) {
+    public func getVehicles(completion: ((Result<[String: VehiclesItem], APIError>)->Void)?) {
         
-        let request = APIRequest(method: .get, path: "/vehicles/")
+        let request = APIRequest(method: .get, path: APIConstants.vehiclesPath)
         request.queryItems =  [
-            URLQueryItem(name: "application_id", value: "175e7c263ea214a8c9df975c6b981e9a"),
+            URLQueryItem(name: "application_id", value: APIConstants.applicationID),
             URLQueryItem(name: "limit", value: "2"),
             URLQueryItem(name: "page_no", value: "1")
         ]
@@ -149,17 +152,18 @@ extension APIClient {
             switch result {
             case .success(let response):
                 do {
-                    print(response)
-                    if response.statusCode == 404 {
+                    let response = try response.decode(to: VehiclesResponse.self)
+                    
+                    if let data = response.body.data {
                         DispatchQueue.main.async {
-                            completion?(.failure(.fieldNotFound))
+                            completion?(.success(data))
                         }
-                        return
-                    }
-                    let response = try response.decode(to: Response.self)
-
-                    DispatchQueue.main.async {
-                        completion?(.success(response.body.result))
+                    } else if let error = response.body.error {
+                        if error.code == 404 {
+                            DispatchQueue.main.async {
+                                completion?(.failure(.methodNotFound))
+                            }
+                        }
                     }
                     
                 } catch {

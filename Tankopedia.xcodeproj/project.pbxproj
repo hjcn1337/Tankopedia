@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720227DC8782006DA90E /* WebImageView.swift */; };
+		BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720427DC87A5006DA90E /* Constraints.swift */; };
+		BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720627DC87C7006DA90E /* VehiclesService.swift */; };
+		BB7D720D27DC8A80006DA90E /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720C27DC8A80006DA90E /* FooterView.swift */; };
+		BB7D720F27DC8CE1006DA90E /* VehiclesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720E27DC8CE1006DA90E /* VehiclesPresenter.swift */; };
 		BBACA35827DBDB580082FED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA35727DBDB580082FED3 /* AppDelegate.swift */; };
 		BBACA35A27DBDB580082FED3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA35927DBDB580082FED3 /* SceneDelegate.swift */; };
-		BBACA35C27DBDB580082FED3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA35B27DBDB580082FED3 /* ViewController.swift */; };
-		BBACA35F27DBDB580082FED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBACA35D27DBDB580082FED3 /* Main.storyboard */; };
+		BBACA35C27DBDB580082FED3 /* VehiclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA35B27DBDB580082FED3 /* VehiclesViewController.swift */; };
 		BBACA36227DBDB580082FED3 /* Tankopedia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBACA36027DBDB580082FED3 /* Tankopedia.xcdatamodeld */; };
 		BBACA36427DBDB590082FED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBACA36327DBDB590082FED3 /* Assets.xcassets */; };
 		BBACA36727DBDB590082FED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */; };
@@ -20,7 +24,8 @@
 		BBACA38B27DBDC190082FED3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA38A27DBDC190082FED3 /* APIClient.swift */; };
 		BBACA38D27DBDD0D0082FED3 /* StringLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA38C27DBDD0D0082FED3 /* StringLocalization.swift */; };
 		BBACA39027DBDD460082FED3 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA38F27DBDD460082FED3 /* BundleHelper.swift */; };
-		BBACA39227DBDED80082FED3 /* ResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA39127DBDED80082FED3 /* ResponseItem.swift */; };
+		BBACA39227DBDED80082FED3 /* VehiclesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACA39127DBDED80082FED3 /* VehiclesResponse.swift */; };
+		BBEFEBAF27DC9F3D007D7D92 /* VehiclesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEFEBAE27DC9F3D007D7D92 /* VehiclesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB7D720227DC8782006DA90E /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		BB7D720427DC87A5006DA90E /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		BB7D720627DC87C7006DA90E /* VehiclesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesService.swift; sourceTree = "<group>"; };
+		BB7D720C27DC8A80006DA90E /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		BB7D720E27DC8CE1006DA90E /* VehiclesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesPresenter.swift; sourceTree = "<group>"; };
 		BBACA35427DBDB580082FED3 /* Tankopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tankopedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBACA35727DBDB580082FED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBACA35927DBDB580082FED3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BBACA35B27DBDB580082FED3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BBACA35E27DBDB580082FED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBACA35B27DBDB580082FED3 /* VehiclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewController.swift; sourceTree = "<group>"; };
 		BBACA36127DBDB580082FED3 /* Tankopedia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tankopedia.xcdatamodel; sourceTree = "<group>"; };
 		BBACA36327DBDB590082FED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBACA36627DBDB590082FED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +67,8 @@
 		BBACA38A27DBDC190082FED3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		BBACA38C27DBDD0D0082FED3 /* StringLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLocalization.swift; sourceTree = "<group>"; };
 		BBACA38F27DBDD460082FED3 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
-		BBACA39127DBDED80082FED3 /* ResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseItem.swift; sourceTree = "<group>"; };
+		BBACA39127DBDED80082FED3 /* VehiclesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesResponse.swift; sourceTree = "<group>"; };
+		BBEFEBAE27DC9F3D007D7D92 /* VehiclesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB7D71FD27DC8201006DA90E /* Vehicles */ = {
+			isa = PBXGroup;
+			children = (
+				BB7D720B27DC8A68006DA90E /* FooterView */,
+				BB7D720627DC87C7006DA90E /* VehiclesService.swift */,
+				BB7D720E27DC8CE1006DA90E /* VehiclesPresenter.swift */,
+				BBACA35B27DBDB580082FED3 /* VehiclesViewController.swift */,
+				BBEFEBAE27DC9F3D007D7D92 /* VehiclesCell.swift */,
+			);
+			path = Vehicles;
+			sourceTree = "<group>";
+		};
+		BB7D720127DC876F006DA90E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BB7D720227DC8782006DA90E /* WebImageView.swift */,
+				BB7D720427DC87A5006DA90E /* Constraints.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BB7D720B27DC8A68006DA90E /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				BB7D720C27DC8A80006DA90E /* FooterView.swift */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
+		BB7D721027DC962C006DA90E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BBACA38A27DBDC190082FED3 /* APIClient.swift */,
+				BBACA39127DBDED80082FED3 /* VehiclesResponse.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		BBACA34B27DBDB580082FED3 = {
 			isa = PBXGroup;
 			children = (
@@ -109,17 +157,16 @@
 		BBACA35627DBDB580082FED3 /* Tankopedia */ = {
 			isa = PBXGroup;
 			children = (
+				BB7D71FD27DC8201006DA90E /* Vehicles */,
+				BB7D721027DC962C006DA90E /* Networking */,
+				BB7D720127DC876F006DA90E /* Helpers */,
 				BBACA38E27DBDD380082FED3 /* Utils */,
-				BBACA38A27DBDC190082FED3 /* APIClient.swift */,
 				BBACA35727DBDB580082FED3 /* AppDelegate.swift */,
 				BBACA35927DBDB580082FED3 /* SceneDelegate.swift */,
-				BBACA35B27DBDB580082FED3 /* ViewController.swift */,
-				BBACA35D27DBDB580082FED3 /* Main.storyboard */,
 				BBACA36327DBDB590082FED3 /* Assets.xcassets */,
 				BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */,
 				BBACA36827DBDB590082FED3 /* Info.plist */,
 				BBACA36027DBDB580082FED3 /* Tankopedia.xcdatamodeld */,
-				BBACA39127DBDED80082FED3 /* ResponseItem.swift */,
 			);
 			path = Tankopedia;
 			sourceTree = "<group>";
@@ -256,7 +303,6 @@
 			files = (
 				BBACA36727DBDB590082FED3 /* LaunchScreen.storyboard in Resources */,
 				BBACA36427DBDB590082FED3 /* Assets.xcassets in Resources */,
-				BBACA35F27DBDB580082FED3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,13 +327,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBACA35C27DBDB580082FED3 /* ViewController.swift in Sources */,
+				BBACA35C27DBDB580082FED3 /* VehiclesViewController.swift in Sources */,
+				BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */,
 				BBACA38D27DBDD0D0082FED3 /* StringLocalization.swift in Sources */,
+				BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */,
+				BBEFEBAF27DC9F3D007D7D92 /* VehiclesCell.swift in Sources */,
+				BB7D720F27DC8CE1006DA90E /* VehiclesPresenter.swift in Sources */,
 				BBACA35827DBDB580082FED3 /* AppDelegate.swift in Sources */,
-				BBACA39227DBDED80082FED3 /* ResponseItem.swift in Sources */,
+				BBACA39227DBDED80082FED3 /* VehiclesResponse.swift in Sources */,
 				BBACA35A27DBDB580082FED3 /* SceneDelegate.swift in Sources */,
 				BBACA38B27DBDC190082FED3 /* APIClient.swift in Sources */,
 				BBACA39027DBDD460082FED3 /* BundleHelper.swift in Sources */,
+				BB7D720D27DC8A80006DA90E /* FooterView.swift in Sources */,
+				BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */,
 				BBACA36227DBDB580082FED3 /* Tankopedia.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,14 +377,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BBACA35D27DBDB580082FED3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BBACA35E27DBDB580082FED3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -472,7 +516,6 @@
 				INFOPLIST_FILE = Tankopedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -500,7 +543,6 @@
 				INFOPLIST_FILE = Tankopedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
