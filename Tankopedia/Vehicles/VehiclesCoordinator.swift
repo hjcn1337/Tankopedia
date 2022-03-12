@@ -26,8 +26,8 @@ final class VehiclesCoordinator: Coordinator {
         navController.pushViewController(viewController, animated: true)
     }
     
-    func navigateToVehicleDetails() {
-        let vehicleCoordinator = VehicleCoordinator(navController: navController, parent: self)
+    func navigateToVehicleDetails(iconImage: String) {
+        let vehicleCoordinator = VehicleCoordinator(navController: navController, parent: self, iconImage: iconImage)
         vehicleCoordinator.start()
         childCoordinators.append(vehicleCoordinator)
     }

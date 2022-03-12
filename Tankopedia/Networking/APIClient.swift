@@ -10,6 +10,7 @@ import Foundation
 fileprivate enum APIConstants {
     static let baseURLString = "https://api.worldoftanks.ru/wot/encyclopedia"
     static let vehiclesPath = "/vehicles/"
+    static let vehiclePath = "/vehicleprofile/"
     static let applicationID = "175e7c263ea214a8c9df975c6b981e9a"
 }
 
@@ -154,6 +155,44 @@ extension APIClient {
             case .success(let response):
                 do {
                     let response = try response.decode(to: VehiclesResponse.self)
+                    
+                    if let data = response.body.data {
+                        DispatchQueue.main.async {
+                            completion?(.success(data))
+                        }
+                    } else if let error = response.body.error {
+                        if error.code == 404 {
+                            DispatchQueue.main.async {
+                                completion?(.failure(.methodNotFound))
+                            }
+                        }
+                    }
+                    
+                } catch {
+                    DispatchQueue.main.async {
+                        completion?(.failure(.decodingFailure))
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    completion?(.failure(error))
+                }
+            }
+        }
+    }
+    
+    public func getVehicle(tankID: Int, completion: ((Result<[String: VehicleItem], APIError>)->Void)?) {        
+        let request = APIRequest(method: .get, path: APIConstants.vehiclePath)
+        request.queryItems =  [
+            URLQueryItem(name: "application_id", value: APIConstants.applicationID),
+            URLQueryItem(name: "tank_id", value: "\(tankID)")
+        ]
+
+        self.perform(request) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let response = try response.decode(to: VehicleResponse.self)
                     
                     if let data = response.body.data {
                         DispatchQueue.main.async {

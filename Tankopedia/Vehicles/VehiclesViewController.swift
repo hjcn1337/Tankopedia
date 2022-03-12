@@ -13,7 +13,7 @@ protocol VehiclesDisplayLogic: AnyObject {
 }
 
 protocol VehiclesViewDelegate {
-    func didSelectVehicle()
+    func didSelectVehicle(iconImage: String)
 }
 
 class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic {
@@ -121,7 +121,7 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Num: \(indexPath.row)")
         print("Value: \(vehicles[indexPath.row])")
-        vehiclesCoordinator?.navigateToVehicleDetails()
+        vehiclesCoordinator?.navigateToVehicleDetails(iconImage: vehicles[indexPath.row].images.bigIcon)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,7 +137,7 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension VehiclesViewController: VehiclesViewDelegate {
     
-    func didSelectVehicle() {
-        vehiclesCoordinator?.navigateToVehicleDetails()
+    func didSelectVehicle(iconImage: String) {
+        vehiclesCoordinator?.navigateToVehicleDetails(iconImage: iconImage)
     }
 }
