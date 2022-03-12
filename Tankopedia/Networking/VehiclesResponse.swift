@@ -29,6 +29,8 @@ public struct VehiclesItem: Codable {
     public let nation: String
     public let tier: Int
     public let isWheeled: Bool
+    public let isGift: Bool
+    public let isPremium: Bool
     
     enum CodingKeys: String, CodingKey {
         case tankID = "tank_id"
@@ -40,6 +42,8 @@ public struct VehiclesItem: Codable {
         case priceGold = "price_gold"
         case priceCredit = "price_credit"
         case isWheeled = "is_wheeled"
+        case isGift = "is_gift"
+        case isPremium = "is_premium"
     }
 }
 

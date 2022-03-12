@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB2A713127DCE8C9005DA5CB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713027DCE8C9005DA5CB /* Colors.swift */; };
 		BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720227DC8782006DA90E /* WebImageView.swift */; };
 		BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720427DC87A5006DA90E /* Constraints.swift */; };
 		BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720627DC87C7006DA90E /* VehiclesService.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB2A713027DCE8C9005DA5CB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BB7D720227DC8782006DA90E /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		BB7D720427DC87A5006DA90E /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		BB7D720627DC87C7006DA90E /* VehiclesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesService.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				BB7D720227DC8782006DA90E /* WebImageView.swift */,
 				BB7D720427DC87A5006DA90E /* Constraints.swift */,
+				BB2A713027DCE8C9005DA5CB /* Colors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBACA35C27DBDB580082FED3 /* VehiclesViewController.swift in Sources */,
+				BB2A713127DCE8C9005DA5CB /* Colors.swift in Sources */,
 				BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */,
 				BBACA38D27DBDD0D0082FED3 /* StringLocalization.swift in Sources */,
 				BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */,

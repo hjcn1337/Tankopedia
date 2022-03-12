@@ -17,6 +17,7 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
     var presenter: VehiclesPresenter?
     var currentPage = 1
     var isLoading = false
+    private var isRefreshRequested = false
     
     private lazy var footerView = FooterView()
     
@@ -31,6 +32,7 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Танковедение"
         
         setup()
         setupTableView()
@@ -39,7 +41,6 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
         presenter?.presentVehicles(page: currentPage) { [weak self] in
             self?.isLoading = false
             self?.increasePageIndex()
-            self?.vehiclesTableView.reloadData()
         }
         isLoading = true
     }
@@ -53,14 +54,22 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
         vehiclesTableView.register(VehiclesCell.self, forCellReuseIdentifier: VehiclesCell.reuseId)
         vehiclesTableView.dataSource = self
         vehiclesTableView.delegate = self
+        vehiclesTableView.rowHeight = UITableView.automaticDimension
+        vehiclesTableView.estimatedRowHeight = 150
         
         vehiclesTableView.addSubview(refreshControl)
+        footerView.setTitle("Loading...")
         vehiclesTableView.tableFooterView = footerView
         self.view.addSubview(vehiclesTableView)
     }
     
     func displayVehicles(vehicles: [VehiclesItem]) {
-        self.vehicles.append(contentsOf: vehicles)
+        if isRefreshRequested {
+            self.vehicles = vehicles
+        } else {
+            self.vehicles.append(contentsOf: vehicles)
+        }
+        self.vehiclesTableView.reloadData()
     }
     
     func displayError(error: APIError) {
@@ -71,10 +80,11 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
         guard !isLoading else { return }
         
         currentPage = 1
+        isRefreshRequested = true
         
         presenter?.presentVehicles(page: currentPage) { [weak self] in
             self?.isLoading = false
-            self?.vehiclesTableView.reloadData()
+            self?.isRefreshRequested = false
             self?.refreshControl.endRefreshing()
         }
         isLoading = true
@@ -84,7 +94,7 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
         guard !isLoading else { return }
         
         if scrollView.contentOffset.y > scrollView.contentSize.height / 1.9 {
-            presenter?.presentVehicles(page: currentPage) { [weak self] in
+            presenter?.presentVehicles(page: currentPage + 1) { [weak self] in
                 self?.increasePageIndex()
                 self?.isLoading = false
             }
@@ -107,10 +117,6 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vehicles.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
