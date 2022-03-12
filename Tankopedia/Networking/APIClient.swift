@@ -125,12 +125,12 @@ public struct APIClient {
                 completion(.failure(.requestFailed)); return
             }
 
-            print("[Response]: \(httpResponse.statusCode) \(httpResponse.url!.absoluteString)")
-            if let data = data,
-                let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
-                let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted]) {
-                print("[Response data]: \(String(data: jsonData, encoding: .utf8) ?? "empty")")
-            }
+//            print("[Response]: \(httpResponse.statusCode) \(httpResponse.url!.absoluteString)")
+//            if let data = data,
+//                let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
+//                let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted]) {
+//                print("[Response data]: \(String(data: jsonData, encoding: .utf8) ?? "empty")")
+//            }
 
             completion(.success(APIResponse<Data?>(statusCode: httpResponse.statusCode, body: data)))
         }
@@ -139,13 +139,14 @@ public struct APIClient {
 }
 
 extension APIClient {
-    public func getVehicles(completion: ((Result<[String: VehiclesItem], APIError>)->Void)?) {
+    public func getVehicles(page: Int, completion: ((Result<[String: VehiclesItem], APIError>)->Void)?) {
+        let limit = 10
         
         let request = APIRequest(method: .get, path: APIConstants.vehiclesPath)
         request.queryItems =  [
             URLQueryItem(name: "application_id", value: APIConstants.applicationID),
-            URLQueryItem(name: "limit", value: "2"),
-            URLQueryItem(name: "page_no", value: "1")
+            URLQueryItem(name: "limit", value: "\(limit)"),
+            URLQueryItem(name: "page_no", value: "\(page)")
         ]
 
         self.perform(request) { (result) in

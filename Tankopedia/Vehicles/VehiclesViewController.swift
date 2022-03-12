@@ -15,6 +15,8 @@ protocol VehiclesDisplayLogic: AnyObject {
 class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
     
     var presenter: VehiclesPresenter?
+    var currentPage = 1
+    var isLoading = false
     
     private lazy var footerView = FooterView()
     
@@ -25,11 +27,7 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
     }()
     
     private var vehiclesTableView: UITableView!
-    private var vehicles: [VehiclesItem] = [] {
-        didSet {
-            vehiclesTableView.reloadData()
-        }
-    }
+    private var vehicles: [VehiclesItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +35,13 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
         setup()
         setupTableView()
         
-        presenter?.presentVehicles()
         
+        presenter?.presentVehicles(page: currentPage) { [weak self] in
+            self?.isLoading = false
+            self?.increasePageIndex()
+            self?.vehiclesTableView.reloadData()
+        }
+        isLoading = true
     }
     
     private func setup() {
@@ -57,9 +60,7 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
     }
     
     func displayVehicles(vehicles: [VehiclesItem]) {
-        self.vehicles = vehicles
-        print(#function)
-        print(vehicles)
+        self.vehicles.append(contentsOf: vehicles)
     }
     
     func displayError(error: APIError) {
@@ -67,14 +68,33 @@ class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
     }
     
     @objc private func refresh() {
-        presenter?.presentVehicles()
+        guard !isLoading else { return }
+        
+        currentPage = 1
+        
+        presenter?.presentVehicles(page: currentPage) { [weak self] in
+            self?.isLoading = false
+            self?.vehiclesTableView.reloadData()
+            self?.refreshControl.endRefreshing()
+        }
+        isLoading = true
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.2 {
-            presenter?.presentVehicles()
+        guard !isLoading else { return }
+        
+        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.9 {
+            presenter?.presentVehicles(page: currentPage) { [weak self] in
+                self?.increasePageIndex()
+                self?.isLoading = false
+            }
+            isLoading = true
             footerView.showLoader()
         }
+    }
+    
+    private func increasePageIndex() {
+        self.currentPage += 1
     }
     
 }

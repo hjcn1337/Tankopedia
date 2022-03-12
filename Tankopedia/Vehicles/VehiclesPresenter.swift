@@ -8,7 +8,7 @@
 import Foundation
 
 protocol VehiclesPresentationLogic {
-    func presentVehicles()
+    func presentVehicles(page: Int, completion: (() -> Void)?)
     func presentError(error: APIError)
     func favoriteAction()
 }
@@ -22,11 +22,12 @@ class VehiclesPresenter: VehiclesPresentationLogic {
         self.service = VehiclesService()
     }
     
-    func presentVehicles() {
-        service.getVehicles { [weak self] (result)  in
+    func presentVehicles(page: Int, completion: (() -> Void)? = nil) {
+        service.getVehicles(page: page) { [weak self] (result)  in
             switch result {
             case .success(let vehicles):
                 self?.view.displayVehicles(vehicles: vehicles)
+                completion?()
             case .failure(let error):
                 self?.view.displayError(error: error)
             }

@@ -16,8 +16,8 @@ class VehiclesService {
         self.apiClient = APIClient()
     }
     
-    func getVehicles(completion: @escaping (Result<[VehiclesItem], APIError>) -> Void) {
-        apiClient.getVehicles { [weak self] (result)  in
+    func getVehicles(page: Int, completion: @escaping (Result<[VehiclesItem], APIError>) -> Void) {
+        apiClient.getVehicles(page: page) { [weak self] (result)  in
             switch result {
             case .success(let result):
                 self?.vehicles = Array(result.values)
