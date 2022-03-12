@@ -12,7 +12,15 @@ protocol VehiclesDisplayLogic: AnyObject {
     func displayError(error: APIError)
 }
 
-class VehiclesViewController: UIViewController, VehiclesDisplayLogic {
+protocol VehiclesViewDelegate {
+    func didSelectVehicle()
+}
+
+class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic {
+    
+    weak var coordinator: Coordinator?
+
+    private var vehiclesCoordinator: VehiclesCoordinator? { coordinator as? VehiclesCoordinator }
     
     var presenter: VehiclesPresenter?
     var currentPage = 1
@@ -113,6 +121,7 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Num: \(indexPath.row)")
         print("Value: \(vehicles[indexPath.row])")
+        vehiclesCoordinator?.navigateToVehicleDetails()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,3 +135,9 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension VehiclesViewController: VehiclesViewDelegate {
+    
+    func didSelectVehicle() {
+        vehiclesCoordinator?.navigateToVehicleDetails()
+    }
+}

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BB2A713127DCE8C9005DA5CB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713027DCE8C9005DA5CB /* Colors.swift */; };
+		BB2A713327DCED05005DA5CB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713227DCED05005DA5CB /* AppCoordinator.swift */; };
+		BB2A713527DCF27D005DA5CB /* VehiclesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713427DCF27D005DA5CB /* VehiclesCoordinator.swift */; };
+		BB2A713827DCF412005DA5CB /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713727DCF412005DA5CB /* VehicleViewController.swift */; };
+		BB2A713A27DCF5E7005DA5CB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713927DCF5E7005DA5CB /* Coordinator.swift */; };
+		BB2A713D27DCF725005DA5CB /* VehicleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713C27DCF725005DA5CB /* VehicleCoordinator.swift */; };
 		BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720227DC8782006DA90E /* WebImageView.swift */; };
 		BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720427DC87A5006DA90E /* Constraints.swift */; };
 		BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720627DC87C7006DA90E /* VehiclesService.swift */; };
@@ -48,6 +53,11 @@
 
 /* Begin PBXFileReference section */
 		BB2A713027DCE8C9005DA5CB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BB2A713227DCED05005DA5CB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BB2A713427DCF27D005DA5CB /* VehiclesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesCoordinator.swift; sourceTree = "<group>"; };
+		BB2A713727DCF412005DA5CB /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
+		BB2A713927DCF5E7005DA5CB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BB2A713C27DCF725005DA5CB /* VehicleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCoordinator.swift; sourceTree = "<group>"; };
 		BB7D720227DC8782006DA90E /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		BB7D720427DC87A5006DA90E /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		BB7D720627DC87C7006DA90E /* VehiclesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesService.swift; sourceTree = "<group>"; };
@@ -98,6 +108,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB2A713627DCF3F8005DA5CB /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				BB2A713727DCF412005DA5CB /* VehicleViewController.swift */,
+				BB2A713C27DCF725005DA5CB /* VehicleCoordinator.swift */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		BB2A713B27DCF5F3005DA5CB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BB2A713927DCF5E7005DA5CB /* Coordinator.swift */,
+				BB2A713227DCED05005DA5CB /* AppCoordinator.swift */,
+				BBACA35727DBDB580082FED3 /* AppDelegate.swift */,
+				BBACA35927DBDB580082FED3 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		BB7D71FD27DC8201006DA90E /* Vehicles */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +136,8 @@
 				BB7D720E27DC8CE1006DA90E /* VehiclesPresenter.swift */,
 				BBACA35B27DBDB580082FED3 /* VehiclesViewController.swift */,
 				BBEFEBAE27DC9F3D007D7D92 /* VehiclesCell.swift */,
+				BB2A713427DCF27D005DA5CB /* VehiclesCoordinator.swift */,
+				BB2A713627DCF3F8005DA5CB /* Vehicle */,
 			);
 			path = Vehicles;
 			sourceTree = "<group>";
@@ -160,12 +192,11 @@
 		BBACA35627DBDB580082FED3 /* Tankopedia */ = {
 			isa = PBXGroup;
 			children = (
+				BB2A713B27DCF5F3005DA5CB /* Application */,
 				BB7D71FD27DC8201006DA90E /* Vehicles */,
 				BB7D721027DC962C006DA90E /* Networking */,
 				BB7D720127DC876F006DA90E /* Helpers */,
 				BBACA38E27DBDD380082FED3 /* Utils */,
-				BBACA35727DBDB580082FED3 /* AppDelegate.swift */,
-				BBACA35927DBDB580082FED3 /* SceneDelegate.swift */,
 				BBACA36327DBDB590082FED3 /* Assets.xcassets */,
 				BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */,
 				BBACA36827DBDB590082FED3 /* Info.plist */,
@@ -330,10 +361,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB2A713327DCED05005DA5CB /* AppCoordinator.swift in Sources */,
+				BB2A713827DCF412005DA5CB /* VehicleViewController.swift in Sources */,
 				BBACA35C27DBDB580082FED3 /* VehiclesViewController.swift in Sources */,
 				BB2A713127DCE8C9005DA5CB /* Colors.swift in Sources */,
 				BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */,
 				BBACA38D27DBDD0D0082FED3 /* StringLocalization.swift in Sources */,
+				BB2A713A27DCF5E7005DA5CB /* Coordinator.swift in Sources */,
 				BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */,
 				BBEFEBAF27DC9F3D007D7D92 /* VehiclesCell.swift in Sources */,
 				BB7D720F27DC8CE1006DA90E /* VehiclesPresenter.swift in Sources */,
@@ -342,7 +376,9 @@
 				BBACA35A27DBDB580082FED3 /* SceneDelegate.swift in Sources */,
 				BBACA38B27DBDC190082FED3 /* APIClient.swift in Sources */,
 				BBACA39027DBDD460082FED3 /* BundleHelper.swift in Sources */,
+				BB2A713D27DCF725005DA5CB /* VehicleCoordinator.swift in Sources */,
 				BB7D720D27DC8A80006DA90E /* FooterView.swift in Sources */,
+				BB2A713527DCF27D005DA5CB /* VehiclesCoordinator.swift in Sources */,
 				BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */,
 				BBACA36227DBDB580082FED3 /* Tankopedia.xcdatamodeld in Sources */,
 			);
