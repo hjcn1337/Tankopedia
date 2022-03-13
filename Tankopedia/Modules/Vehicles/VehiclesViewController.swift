@@ -16,7 +16,8 @@ protocol VehiclesViewDelegate {
     func didSelectVehicle(vehicle: VehicleModel)
 }
 
-class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic, VehiclesCellDelegate {
+class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic, VehiclesCellDelegate, VehicleDetailsFavouriteLogic {
+    
     weak var coordinator: Coordinator?
 
     private var vehiclesCoordinator: VehiclesCoordinator? { coordinator as? VehiclesCoordinator }
@@ -36,6 +37,8 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
     
     private var vehiclesTableView: UITableView!
     private var vehicles: [VehicleModel] = []
+    
+    private var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,12 +136,28 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         presenter?.favouritesAction(vehicle: vehicle)
     }
     
+    func vehicleDetailsFavouritesAction(vehicle: VehicleModel) {
+        guard
+            let selectedIndexPath = selectedIndexPath,
+            let cell = vehiclesTableView.cellForRow(at: selectedIndexPath) as? VehiclesCell
+        else { return }
+
+        if vehicle.isFavourite {
+            cell.favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+            vehicles[selectedIndexPath.row].isFavourite = false
+        } else {
+            cell.favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+            vehicles[selectedIndexPath.row].isFavourite = true
+        }
+        presenter?.favouritesAction(vehicle: vehicle)
+    }
+    
 }
 
 extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vehicle = vehicles[indexPath.row]
-        
+        selectedIndexPath = indexPath
         vehiclesCoordinator?.navigateToVehicleDetails(vehicle: vehicle)
     }
     

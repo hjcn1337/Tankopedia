@@ -13,7 +13,11 @@ protocol VehicleDisplayLogic: AnyObject {
     func displayError(error: APIError)
 }
 
-class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogic {
+protocol VehicleDetailsFavouriteLogic: AnyObject {
+    func vehicleDetailsFavouritesAction(vehicle: VehicleModel)
+}
+
+class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogic, VehicleViewDelegate {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +34,8 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     
     weak var coordinator: Coordinator?
     
+    weak var delegate: VehicleDetailsFavouriteLogic?
+    
     private var presenter: VehiclePresenter?
     var vehicle: VehicleModel?
     
@@ -41,6 +47,7 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
         scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
         scrollView.addSubview(vehicleView)
+        vehicleView.delegate = self
         
         vehicleView.backgroundColor = .white
         vehicleView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
@@ -49,6 +56,7 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
         vehicleView.favoriteButton.isHidden = true
         
         setup()
+        
         guard let tankID = vehicle?.tankID else { return }
         
         presenter?.presentVehicle(tankID: tankID)
@@ -84,6 +92,17 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     func displayError(error: APIError) {
         showAlert(withTitle: tr("error.title"), withMessage: error.errorDescription ?? tr("error.loading_error")) {
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func favouritesAction() {
+        if let vehicle = vehicle {
+            if vehicle.isFavourite {
+                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+            } else {
+                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+            }
+            delegate?.vehicleDetailsFavouritesAction(vehicle: vehicle)
         }
     }
 }

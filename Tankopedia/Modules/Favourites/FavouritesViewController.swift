@@ -12,7 +12,9 @@ protocol FavouritesDisplayLogic: AnyObject {
     func displayFavourites(vehicles: [FavouriteVehicleModel])
 }
 
-class FavouritesViewController: UIViewController, FavouritesDisplayLogic {
+class FavouritesViewController: UIViewController, Coordinatable, FavouritesDisplayLogic {
+    
+    weak var coordinator: Coordinator?
     
     var presenter: FavouritesPresentationLogic?
     

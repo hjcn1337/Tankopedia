@@ -10,7 +10,6 @@ import Foundation
 protocol VehiclePresentationLogic {
     func presentVehicle(tankID: Int, completion: (() -> Void)?)
     func presentError(error: APIError)
-    func favoriteAction()
 }
 
 class VehiclePresenter: VehiclePresentationLogic {
@@ -36,10 +35,6 @@ class VehiclePresenter: VehiclePresentationLogic {
     
     func presentError(error: APIError) {
         self.view.displayError(error: error)
-    }
-    
-    func favoriteAction() {
-        print(#function)
     }
     
 }

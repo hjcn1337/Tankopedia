@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+protocol VehicleViewDelegate: AnyObject {
+    func favouritesAction()
+}
+
 class VehicleView: UIView {
+    
+    weak var delegate: VehicleViewDelegate?
+    
     let iconImageView: WebImageView = {
         let imageView = WebImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +102,6 @@ class VehicleView: UIView {
         
         iconImageView.aspectRation(1.0/1.0).isActive = true
         iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        //iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         iconImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
@@ -137,8 +143,12 @@ class VehicleView: UIView {
         favoriteButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         favoriteButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         favoriteButton.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor).isActive = true
-        //favoriteButton.bot.constraint(equalTo: self.centerYAnchor).isActive = true
         
+        favoriteButton.addTarget(self, action: #selector(favouritesTouch), for: .touchUpInside)
+    }
+    
+    @objc func favouritesTouch() {
+        delegate?.favouritesAction()
     }
     
     required init?(coder aDecoder: NSCoder) {

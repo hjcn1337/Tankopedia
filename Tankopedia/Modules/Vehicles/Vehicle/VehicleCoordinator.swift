@@ -26,6 +26,7 @@ final class VehicleCoordinator: Coordinator {
     func start() {
         let viewController = VehicleViewController()
         viewController.coordinator = self
+        viewController.delegate = navController.viewControllers.first as? VehicleDetailsFavouriteLogic
         viewController.vehicle = vehicle
         navController.pushViewController(viewController, animated: true)
     }
