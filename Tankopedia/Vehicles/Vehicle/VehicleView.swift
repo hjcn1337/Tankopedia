@@ -27,7 +27,7 @@ class VehicleView: UIView {
     let hpTitleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.textColor = .black
         return label
     }()
@@ -43,7 +43,7 @@ class VehicleView: UIView {
     let weightTitleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.textColor = .black
         return label
     }()
@@ -59,7 +59,7 @@ class VehicleView: UIView {
     let profileIDTitleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.textColor = .black
         return label
     }()
@@ -93,10 +93,11 @@ class VehicleView: UIView {
         self.addSubview(profileIDLabel)
         self.addSubview(favoriteButton)
         
+        iconImageView.aspectRation(1.0/1.0).isActive = true
+        iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        //iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         iconImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        iconImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 20).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor).isActive = true

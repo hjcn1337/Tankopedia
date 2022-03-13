@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Tankopedia
+
+  Created by Rostislav Ermachenkov on 13.03.2022.
+  
+*/
+
+
+"tankopedia.title" = "Tankopedia";
+"tankopedia.price" = "Price";
+"tankopedia.hp" = "Health Points";
+"tankopedia.weight" = "Weight";
+"tankopedia.profile_id" = "Profile ID";
+"favorites.title" = "Favorites";
+
+"loading.title" = "Loading...";
+"error.title" = "Error";
+"error.loading_error" = "Loading error. Please retry later.";
+"error.method_not_found" = "METHOD NOT FOUND";
+"error.invaild_url" = "Invalid url";
+"error.unable_to_parse" = "Unable to parse response.";
+"error.request_failed" = "Request failed";

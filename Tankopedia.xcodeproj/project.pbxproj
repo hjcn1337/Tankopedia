@@ -19,6 +19,7 @@
 		BB2A714727DD15F2005DA5CB /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A714627DD15F2005DA5CB /* VehicleView.swift */; };
 		BB43F29F27DE06A200328318 /* VehicleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43F29E27DE06A200328318 /* VehicleDetails.swift */; };
 		BB43F2A127DE0BB000328318 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43F2A027DE0BB000328318 /* UIViewController+Extension.swift */; };
+		BB43F2A527DE147600328318 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB43F2A727DE147600328318 /* Localizable.strings */; };
 		BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720227DC8782006DA90E /* WebImageView.swift */; };
 		BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720427DC87A5006DA90E /* Constraints.swift */; };
 		BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720627DC87C7006DA90E /* VehiclesService.swift */; };
@@ -70,6 +71,8 @@
 		BB2A714627DD15F2005DA5CB /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
 		BB43F29E27DE06A200328318 /* VehicleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetails.swift; sourceTree = "<group>"; };
 		BB43F2A027DE0BB000328318 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		BB43F2A627DE147600328318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BB43F2A827DE148D00328318 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BB7D720227DC8782006DA90E /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		BB7D720427DC87A5006DA90E /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		BB7D720627DC87C7006DA90E /* VehiclesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesService.swift; sourceTree = "<group>"; };
@@ -144,6 +147,15 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		BB43F2A427DE145300328318 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BBACA36327DBDB590082FED3 /* Assets.xcassets */,
+				BB43F2A727DE147600328318 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BB7D71FD27DC8201006DA90E /* Vehicles */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +227,7 @@
 				BB7D721027DC962C006DA90E /* Networking */,
 				BB7D720127DC876F006DA90E /* Helpers */,
 				BBACA38E27DBDD380082FED3 /* Utils */,
-				BBACA36327DBDB590082FED3 /* Assets.xcassets */,
+				BB43F2A427DE145300328318 /* Resources */,
 				BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */,
 				BBACA36827DBDB590082FED3 /* Info.plist */,
 				BBACA36027DBDB580082FED3 /* Tankopedia.xcdatamodeld */,
@@ -335,6 +347,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = BBACA34B27DBDB580082FED3;
 			productRefGroup = BBACA35527DBDB580082FED3 /* Products */;
@@ -354,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBACA36727DBDB590082FED3 /* LaunchScreen.storyboard in Resources */,
+				BB43F2A527DE147600328318 /* Localizable.strings in Resources */,
 				BBACA36427DBDB590082FED3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +455,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BB43F2A727DE147600328318 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB43F2A627DE147600328318 /* en */,
+				BB43F2A827DE148D00328318 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		BBACA36527DBDB590082FED3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -456,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -517,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

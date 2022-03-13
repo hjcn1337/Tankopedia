@@ -14,6 +14,14 @@ protocol VehicleDisplayLogic: AnyObject {
 }
 
 class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogic {
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .white
+        scrollView.alwaysBounceVertical = true
+        return scrollView
+    }()
+    
     private let vehicleView: VehicleView = {
         let vehicleView = VehicleView()
         vehicleView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,10 +37,16 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        view.addSubview(vehicleView)
+        view.addSubview(scrollView)
+        scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
-        vehicleView.backgroundColor = .blue
-        vehicleView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
+        scrollView.addSubview(vehicleView)
+        
+        vehicleView.backgroundColor = .white
+        vehicleView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
+        vehicleView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        vehicleView.heightAnchor.constraint(equalToConstant: 800).isActive = true
+        vehicleView.favoriteButton.isHidden = true
         
         setup()
         guard let tankID = vehicle?.tankID else { return }
@@ -47,21 +61,22 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     
     func displayVehicle(vehicle: VehicleItem) {
         DispatchQueue.main.async {
-            self.vehicleView.hpTitleLabel.text = "Прочность"
-            self.vehicleView.weightTitleLabel.text = "Масса"
-            self.vehicleView.profileIDTitleLabel.text = "Profile ID"
+            self.vehicleView.hpTitleLabel.text = tr("tankopedia.hp")
+            self.vehicleView.weightTitleLabel.text = tr("tankopedia.weight")
+            self.vehicleView.profileIDTitleLabel.text = tr("tankopedia.profile_id")
             self.vehicleView.iconImageView.set(imageURL: self.vehicle?.imageURLString)
             self.vehicleView.titleLabel.text = self.vehicle?.name
             
             self.vehicleView.hpLabel.text = "\(vehicle.hp)"
             self.vehicleView.weightLabel.text = "\(vehicle.weight)"
             self.vehicleView.profileIDLabel.text = vehicle.profileID
+            self.vehicleView.favoriteButton.isHidden = false
         }
         
     }
     
     func displayError(error: APIError) {
-        showAlert(withTitle: "ОШИБКА", withMessage: error.errorDescription ?? "ОШИБКА") {
+        showAlert(withTitle: tr("error.title"), withMessage: error.errorDescription ?? tr("error.loading_error")) {
             self.navigationController?.popViewController(animated: true)
         }
     }

@@ -40,7 +40,7 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Танковедение"
+        navigationItem.title = tr("tankopedia.title")
         
         setup()
         setupTableView()
@@ -64,7 +64,7 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         vehiclesTableView.estimatedRowHeight = 150
         
         vehiclesTableView.addSubview(refreshControl)
-        footerView.setTitle("Loading...")
+        footerView.setTitle(tr("loading.title"))
         vehiclesTableView.tableFooterView = footerView
         self.view.addSubview(vehiclesTableView)
     }
@@ -79,7 +79,7 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
     }
     
     func displayError(error: APIError) {
-        showAlert(withTitle: "ОШИБКА", withMessage: error.errorDescription ?? "ОШИБКА") {
+        showAlert(withTitle: tr("error.title"), withMessage: error.errorDescription ?? tr("error.loading_error")) {
             self.endLoading()
         }
     }

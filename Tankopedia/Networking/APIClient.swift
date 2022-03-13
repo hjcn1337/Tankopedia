@@ -71,13 +71,13 @@ public enum APIError: String, LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "Invalid url"
+            return tr("error.invaild_url")
         case .requestFailed:
             return tr("error.request_failed")
         case .decodingFailure:
-            return "Unable to parse response."
+            return tr("error.unable_to_parse")
         case .methodNotFound:
-            return tr("error.face_not_found")
+            return tr("error.method_not_found")
         }
         
     }
@@ -119,19 +119,10 @@ public struct APIClient {
 
         request.headers?.forEach { urlRequest.addValue($0.value, forHTTPHeaderField: $0.field) }
         
-        print("[Request]: \(urlRequest.description)")
-        
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(.requestFailed)); return
             }
-
-//            print("[Response]: \(httpResponse.statusCode) \(httpResponse.url!.absoluteString)")
-//            if let data = data,
-//                let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
-//                let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted]) {
-//                print("[Response data]: \(String(data: jsonData, encoding: .utf8) ?? "empty")")
-//            }
 
             completion(.success(APIResponse<Data?>(statusCode: httpResponse.statusCode, body: data)))
         }

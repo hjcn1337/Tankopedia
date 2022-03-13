@@ -168,7 +168,7 @@ class VehiclesCell: UITableViewCell {
         descriptionLabel.text = item.vehicleDescription
         
         if !item.isGift, !item.isPremium {
-            priceTitleLabel.text = "Цена"
+            priceTitleLabel.text = tr("tankopedia.price")
             if let priceCredit = item.priceCredit {
                 priceTypeImageView.image = UIImage(named: "silver")
                 priceLabel.text = "\(priceCredit)"
