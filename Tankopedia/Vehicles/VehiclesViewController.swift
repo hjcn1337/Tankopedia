@@ -46,8 +46,7 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         setupTableView()
         
         presenter?.presentVehicles(page: currentPage) { [weak self] in
-            self?.isLoading = false
-            self?.increasePageIndex()
+            self?.endLoading(needToIncreasePageIndex: true)
         }
         isLoading = true
     }
@@ -101,9 +100,8 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         guard !isLoading else { return }
         
         if scrollView.contentOffset.y > scrollView.contentSize.height / 1.9 {
-            presenter?.presentVehicles(page: currentPage + 1) { [weak self] in
-                self?.increasePageIndex()
-                self?.isLoading = false
+            presenter?.presentVehicles(page: currentPage) { [weak self] in
+                self?.endLoading(needToIncreasePageIndex: true)
             }
             isLoading = true
             footerView.showLoader()
@@ -114,7 +112,10 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         self.currentPage += 1
     }
     
-    private func endLoading() {
+    private func endLoading(needToIncreasePageIndex: Bool = false) {
+        if needToIncreasePageIndex {
+            self.increasePageIndex()
+        }
         self.isLoading = false
         self.isRefreshRequested = false
         self.refreshControl.endRefreshing()
