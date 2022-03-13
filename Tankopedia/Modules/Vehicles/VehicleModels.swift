@@ -21,9 +21,3 @@ struct VehicleModel {
     let isPremium: Bool
     var isFavourite: Bool
 }
-
-struct VehicleDetails {
-    let tankID: Int
-    let name: String
-    let imageURLString: String
-}
