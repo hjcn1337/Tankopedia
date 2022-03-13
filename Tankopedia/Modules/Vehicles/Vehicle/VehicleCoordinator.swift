@@ -15,9 +15,9 @@ final class VehicleCoordinator: Coordinator {
     
     private let navController: UINavigationController
     
-    private let vehicle: VehicleDetails
+    private let vehicle: VehicleModel
     
-    init(navController: UINavigationController, parent: Coordinator? = nil, vehicle: VehicleDetails) {
+    init(navController: UINavigationController, parent: Coordinator? = nil, vehicle: VehicleModel) {
         self.navController = navController
         self.parent = parent
         self.vehicle = vehicle

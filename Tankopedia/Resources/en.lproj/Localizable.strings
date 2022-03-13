@@ -12,7 +12,7 @@
 "tankopedia.hp" = "Health Points";
 "tankopedia.weight" = "Weight";
 "tankopedia.profile_id" = "Profile ID";
-"favorites.title" = "Favorites";
+"favourites.title" = "Favourites";
 
 "loading.title" = "Loading...";
 "error.title" = "Error";

@@ -9,11 +9,13 @@ import Foundation
 
 class VehiclesService {
     private var apiClient: APIClient
+    private var coreDataManager: CoreDataManaging
     
     private var vehicles: [VehiclesItem]?
     
     init() {
         self.apiClient = APIClient()
+        self.coreDataManager = CoreDataManager()
     }
     
     func getVehicles(page: Int, completion: @escaping (Result<[VehiclesItem], APIError>) -> Void) {
@@ -26,6 +28,19 @@ class VehiclesService {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    
+    func getFavourites() -> [FavouriteVehicle] {
+        return coreDataManager.getFavourites()
+    }
+    
+    func favouritesAction(vehicle: VehicleModel) {
+        if vehicle.isFavourite {
+            coreDataManager.deleteVehicleFromFavourites(vehicle: vehicle)
+        } else {
+            coreDataManager.addVehicleToFavourites(vehicle: vehicle)
         }
     }
 }

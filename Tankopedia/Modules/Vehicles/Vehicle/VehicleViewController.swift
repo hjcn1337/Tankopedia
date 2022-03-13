@@ -31,7 +31,7 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     weak var coordinator: Coordinator?
     
     private var presenter: VehiclePresenter?
-    var vehicle: VehicleDetails?
+    var vehicle: VehicleModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +64,18 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
             self.vehicleView.hpTitleLabel.text = tr("tankopedia.hp")
             self.vehicleView.weightTitleLabel.text = tr("tankopedia.weight")
             self.vehicleView.profileIDTitleLabel.text = tr("tankopedia.profile_id")
-            self.vehicleView.iconImageView.set(imageURL: self.vehicle?.imageURLString)
+            self.vehicleView.iconImageView.set(imageURL: self.vehicle?.imageUrlString)
             self.vehicleView.titleLabel.text = self.vehicle?.name
             
             self.vehicleView.hpLabel.text = "\(vehicle.hp)"
             self.vehicleView.weightLabel.text = "\(vehicle.weight)"
             self.vehicleView.profileIDLabel.text = vehicle.profileID
+            if let isFavourite = self.vehicle?.isFavourite, isFavourite {
+                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+            } else {
+                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+            }
+            
             self.vehicleView.favoriteButton.isHidden = false
         }
         

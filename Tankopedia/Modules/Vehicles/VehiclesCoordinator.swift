@@ -26,7 +26,7 @@ final class VehiclesCoordinator: Coordinator {
         navController.pushViewController(viewController, animated: true)
     }
     
-    func navigateToVehicleDetails(vehicle: VehicleDetails) {
+    func navigateToVehicleDetails(vehicle: VehicleModel) {
         let vehicleCoordinator = VehicleCoordinator(navController: navController, parent: self, vehicle: vehicle)
         vehicleCoordinator.start()
         childCoordinators.append(vehicleCoordinator)

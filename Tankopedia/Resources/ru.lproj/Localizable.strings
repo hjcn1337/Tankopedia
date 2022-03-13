@@ -12,7 +12,7 @@
 "tankopedia.hp" = "Прочность";
 "tankopedia.weight" = "Масса";
 "tankopedia.profile_id" = "Profile ID";
-"favorites.title" = "Избранное";
+"favourites.title" = "Избранное";
 
 "loading.title" = "Загрузка...";
 "error.title" = "Ошибка";

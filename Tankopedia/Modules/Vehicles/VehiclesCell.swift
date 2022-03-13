@@ -156,14 +156,14 @@ class VehiclesCell: UITableViewCell {
         cellView.fillSuperview(padding: Constants.cellInsets)
     }
     
-    func set(item: VehiclesItem) {
-//        if viewModel.isFavorite {
-//            favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
-//        } else {
-//            favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
-//        }
+    func set(item: VehicleModel) {
+        if item.isFavourite {
+            favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+        } else {
+            favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+        }
         
-        vehicleImageView.set(imageURL: item.images.bigIcon)
+        vehicleImageView.set(imageURL: item.imageUrlString)
         titleLabel.text = item.name
         descriptionLabel.text = item.vehicleDescription
         

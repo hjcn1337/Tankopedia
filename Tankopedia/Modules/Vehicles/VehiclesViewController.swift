@@ -8,16 +8,15 @@
 import UIKit
 
 protocol VehiclesDisplayLogic: AnyObject {
-    func displayVehicles(vehicles: [VehiclesItem])
+    func displayVehicles(vehicles: [VehicleModel])
     func displayError(error: APIError)
 }
 
 protocol VehiclesViewDelegate {
-    func didSelectVehicle(vehicle: VehicleDetails)
+    func didSelectVehicle(vehicle: VehicleModel)
 }
 
-class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic {
-    
+class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic, VehiclesCellDelegate {
     weak var coordinator: Coordinator?
 
     private var vehiclesCoordinator: VehiclesCoordinator? { coordinator as? VehiclesCoordinator }
@@ -36,7 +35,7 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
     }()
     
     private var vehiclesTableView: UITableView!
-    private var vehicles: [VehiclesItem] = []
+    private var vehicles: [VehicleModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +68,7 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         self.view.addSubview(vehiclesTableView)
     }
     
-    func displayVehicles(vehicles: [VehiclesItem]) {
+    func displayVehicles(vehicles: [VehicleModel]) {
         if isRefreshRequested {
             self.vehicles = vehicles
         } else {
@@ -121,17 +120,26 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         self.refreshControl.endRefreshing()
     }
     
+    func favoriteAction(cell: VehiclesCell) {
+        guard let indexPath = vehiclesTableView.indexPath(for: cell) else { return }
+        let vehicle = vehicles[indexPath.row]
+        if vehicle.isFavourite {
+            cell.favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+            vehicles[indexPath.row].isFavourite = false
+        } else {
+            cell.favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+            vehicles[indexPath.row].isFavourite = true
+        }
+        presenter?.favouritesAction(vehicle: vehicle)
+    }
+    
 }
 
 extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = vehicles[indexPath.row]
+        let vehicle = vehicles[indexPath.row]
         
-        vehiclesCoordinator?.navigateToVehicleDetails(vehicle: VehicleDetails(
-            tankID: item.tankID,
-            name: item.name,
-            imageURLString: item.images.bigIcon)
-        )
+        vehiclesCoordinator?.navigateToVehicleDetails(vehicle: vehicle)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,13 +149,14 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VehiclesCell.reuseId, for: indexPath as IndexPath) as! VehiclesCell
         cell.set(item: vehicles[indexPath.row])
+        cell.delegate = self
         return cell
     }
 }
 
 extension VehiclesViewController: VehiclesViewDelegate {
     
-    func didSelectVehicle(vehicle: VehicleDetails) {
+    func didSelectVehicle(vehicle: VehicleModel) {
         vehiclesCoordinator?.navigateToVehicleDetails(vehicle: vehicle)
     }
 }
