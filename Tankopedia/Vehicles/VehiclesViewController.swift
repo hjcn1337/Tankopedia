@@ -13,7 +13,7 @@ protocol VehiclesDisplayLogic: AnyObject {
 }
 
 protocol VehiclesViewDelegate {
-    func didSelectVehicle(iconImage: String)
+    func didSelectVehicle(vehicle: VehicleDetails)
 }
 
 class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic {
@@ -22,9 +22,9 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
 
     private var vehiclesCoordinator: VehiclesCoordinator? { coordinator as? VehiclesCoordinator }
     
-    var presenter: VehiclesPresenter?
-    var currentPage = 1
-    var isLoading = false
+    private var presenter: VehiclesPresenter?
+    private var currentPage = 1
+    private var isLoading = false
     private var isRefreshRequested = false
     
     private lazy var footerView = FooterView()
@@ -44,7 +44,6 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         
         setup()
         setupTableView()
-        
         
         presenter?.presentVehicles(page: currentPage) { [weak self] in
             self?.isLoading = false
@@ -81,7 +80,9 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
     }
     
     func displayError(error: APIError) {
-        print(error.errorDescription)
+        showAlert(withTitle: "ОШИБКА", withMessage: error.errorDescription ?? "ОШИБКА") {
+            self.endLoading()
+        }
     }
     
     @objc private func refresh() {
@@ -91,9 +92,7 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         isRefreshRequested = true
         
         presenter?.presentVehicles(page: currentPage) { [weak self] in
-            self?.isLoading = false
-            self?.isRefreshRequested = false
-            self?.refreshControl.endRefreshing()
+            self?.endLoading()
         }
         isLoading = true
     }
@@ -115,13 +114,23 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         self.currentPage += 1
     }
     
+    private func endLoading() {
+        self.isLoading = false
+        self.isRefreshRequested = false
+        self.refreshControl.endRefreshing()
+    }
+    
 }
 
 extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Num: \(indexPath.row)")
-        print("Value: \(vehicles[indexPath.row])")
-        vehiclesCoordinator?.navigateToVehicleDetails(iconImage: vehicles[indexPath.row].images.bigIcon)
+        let item = vehicles[indexPath.row]
+        
+        vehiclesCoordinator?.navigateToVehicleDetails(vehicle: VehicleDetails(
+            tankID: item.tankID,
+            name: item.name,
+            imageURLString: item.images.bigIcon)
+        )
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,7 +146,7 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension VehiclesViewController: VehiclesViewDelegate {
     
-    func didSelectVehicle(iconImage: String) {
-        vehiclesCoordinator?.navigateToVehicleDetails(iconImage: iconImage)
+    func didSelectVehicle(vehicle: VehicleDetails) {
+        vehiclesCoordinator?.navigateToVehicleDetails(vehicle: vehicle)
     }
 }

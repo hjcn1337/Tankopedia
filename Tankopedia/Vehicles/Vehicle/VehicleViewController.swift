@@ -22,8 +22,8 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     
     weak var coordinator: Coordinator?
     
-    var presenter: VehiclePresenter?
-    var iconImage: String?
+    private var presenter: VehiclePresenter?
+    var vehicle: VehicleDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +34,10 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
         vehicleView.backgroundColor = .blue
         vehicleView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
         
-        vehicleView.iconImageView.set(imageURL: iconImage)
-        
         setup()
-        presenter?.presentVehicle(tankID: 1)
+        guard let tankID = vehicle?.tankID else { return }
+        
+        presenter?.presentVehicle(tankID: tankID)
     }
     
     
@@ -46,11 +46,23 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     }
     
     func displayVehicle(vehicle: VehicleItem) {
-        print(#function)
-        print(vehicle)
+        DispatchQueue.main.async {
+            self.vehicleView.hpTitleLabel.text = "Прочность"
+            self.vehicleView.weightTitleLabel.text = "Масса"
+            self.vehicleView.profileIDTitleLabel.text = "Profile ID"
+            self.vehicleView.iconImageView.set(imageURL: self.vehicle?.imageURLString)
+            self.vehicleView.titleLabel.text = self.vehicle?.name
+            
+            self.vehicleView.hpLabel.text = "\(vehicle.hp)"
+            self.vehicleView.weightLabel.text = "\(vehicle.weight)"
+            self.vehicleView.profileIDLabel.text = vehicle.profileID
+        }
+        
     }
     
     func displayError(error: APIError) {
-        print(#function)
+        showAlert(withTitle: "ОШИБКА", withMessage: error.errorDescription ?? "ОШИБКА") {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

@@ -84,19 +84,60 @@ class VehicleView: UIView {
         super.init(frame: frame)
         
         self.addSubview(iconImageView)
-//        self.addSubview(titleLabel)
-//        self.addSubview(hpTitleLabel)
-//        self.addSubview(hpLabel)
-//        self.addSubview(weightTitleLabel)
-//        self.addSubview(weightLabel)
-//        self.addSubview(profileIDTitleLabel)
-//        self.addSubview(profileIDLabel)
-//        self.addSubview(favoriteButton)
+        self.addSubview(titleLabel)
+        self.addSubview(hpTitleLabel)
+        self.addSubview(hpLabel)
+        self.addSubview(weightTitleLabel)
+        self.addSubview(weightLabel)
+        self.addSubview(profileIDTitleLabel)
+        self.addSubview(profileIDLabel)
+        self.addSubview(favoriteButton)
         
         iconImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
         iconImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 20).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        hpTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        hpTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        hpTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        hpTitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        hpLabel.topAnchor.constraint(equalTo: hpTitleLabel.bottomAnchor, constant: 20).isActive = true
+        hpLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        hpLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        hpLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        weightTitleLabel.topAnchor.constraint(equalTo: hpLabel.bottomAnchor, constant: 40).isActive = true
+        weightTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        weightTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        weightTitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        weightLabel.topAnchor.constraint(equalTo: weightTitleLabel.bottomAnchor, constant: 20).isActive = true
+        weightLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        weightLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        weightLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        profileIDTitleLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 40).isActive = true
+        profileIDTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        profileIDTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        profileIDTitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        profileIDLabel.topAnchor.constraint(equalTo: profileIDTitleLabel.bottomAnchor, constant: 20).isActive = true
+        profileIDLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        profileIDLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        profileIDLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        favoriteButton.topAnchor.constraint(equalTo: profileIDLabel.bottomAnchor, constant: 40).isActive = true
+        favoriteButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        favoriteButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        favoriteButton.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor).isActive = true
+        //favoriteButton.bot.constraint(equalTo: self.centerYAnchor).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

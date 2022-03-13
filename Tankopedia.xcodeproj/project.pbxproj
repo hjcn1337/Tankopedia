@@ -17,6 +17,8 @@
 		BB2A714127DD0BDC005DA5CB /* VehiclePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A714027DD0BDC005DA5CB /* VehiclePresenter.swift */; };
 		BB2A714327DD0CAC005DA5CB /* VehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A714227DD0CAC005DA5CB /* VehicleResponse.swift */; };
 		BB2A714727DD15F2005DA5CB /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A714627DD15F2005DA5CB /* VehicleView.swift */; };
+		BB43F29F27DE06A200328318 /* VehicleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43F29E27DE06A200328318 /* VehicleDetails.swift */; };
+		BB43F2A127DE0BB000328318 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43F2A027DE0BB000328318 /* UIViewController+Extension.swift */; };
 		BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720227DC8782006DA90E /* WebImageView.swift */; };
 		BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720427DC87A5006DA90E /* Constraints.swift */; };
 		BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720627DC87C7006DA90E /* VehiclesService.swift */; };
@@ -66,6 +68,8 @@
 		BB2A714027DD0BDC005DA5CB /* VehiclePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePresenter.swift; sourceTree = "<group>"; };
 		BB2A714227DD0CAC005DA5CB /* VehicleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleResponse.swift; sourceTree = "<group>"; };
 		BB2A714627DD15F2005DA5CB /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
+		BB43F29E27DE06A200328318 /* VehicleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetails.swift; sourceTree = "<group>"; };
+		BB43F2A027DE0BB000328318 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		BB7D720227DC8782006DA90E /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		BB7D720427DC87A5006DA90E /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		BB7D720627DC87C7006DA90E /* VehiclesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesService.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				BB2A713E27DD0BD3005DA5CB /* VehicleService.swift */,
 				BB2A714027DD0BDC005DA5CB /* VehiclePresenter.swift */,
 				BB2A714627DD15F2005DA5CB /* VehicleView.swift */,
+				BB43F29E27DE06A200328318 /* VehicleDetails.swift */,
 			);
 			path = Vehicle;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				BB7D720227DC8782006DA90E /* WebImageView.swift */,
 				BB7D720427DC87A5006DA90E /* Constraints.swift */,
 				BB2A713027DCE8C9005DA5CB /* Colors.swift */,
+				BB43F2A027DE0BB000328318 /* UIViewController+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */,
 				BBEFEBAF27DC9F3D007D7D92 /* VehiclesCell.swift in Sources */,
 				BB7D720F27DC8CE1006DA90E /* VehiclesPresenter.swift in Sources */,
+				BB43F2A127DE0BB000328318 /* UIViewController+Extension.swift in Sources */,
 				BBACA35827DBDB580082FED3 /* AppDelegate.swift in Sources */,
 				BBACA39227DBDED80082FED3 /* VehiclesResponse.swift in Sources */,
 				BBACA35A27DBDB580082FED3 /* SceneDelegate.swift in Sources */,
@@ -397,6 +404,7 @@
 				BB2A713527DCF27D005DA5CB /* VehiclesCoordinator.swift in Sources */,
 				BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */,
 				BBACA36227DBDB580082FED3 /* Tankopedia.xcdatamodeld in Sources */,
+				BB43F29F27DE06A200328318 /* VehicleDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +580,7 @@
 				INFOPLIST_FILE = Tankopedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -599,6 +608,7 @@
 				INFOPLIST_FILE = Tankopedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -15,18 +15,18 @@ final class VehicleCoordinator: Coordinator {
     
     private let navController: UINavigationController
     
-    private let iconImage: String
+    private let vehicle: VehicleDetails
     
-    init(navController: UINavigationController, parent: Coordinator? = nil, iconImage: String) {
+    init(navController: UINavigationController, parent: Coordinator? = nil, vehicle: VehicleDetails) {
         self.navController = navController
         self.parent = parent
-        self.iconImage = iconImage
+        self.vehicle = vehicle
     }
     
     func start() {
         let viewController = VehicleViewController()
         viewController.coordinator = self
-        viewController.iconImage = iconImage
+        viewController.vehicle = vehicle
         navController.pushViewController(viewController, animated: true)
     }
     
