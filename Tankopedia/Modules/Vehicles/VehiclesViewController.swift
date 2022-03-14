@@ -18,7 +18,7 @@ protocol VehiclesViewDelegate {
 
 class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic, VehiclesCellDelegate, VehicleDetailsFavouriteLogic {
     
-    weak var coordinator: Coordinator?
+    var coordinator: Coordinator?
 
     private var vehiclesCoordinator: VehiclesCoordinator? { coordinator as? VehiclesCoordinator }
     
@@ -53,12 +53,22 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         isLoading = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.tabBarController?.tabBar.isHidden = false
+    }
+    
     private func setup() {
         self.presenter = VehiclesPresenter(view: self)
     }
     
     private func setupTableView() {
         vehiclesTableView = UITableView(frame: view.bounds)
+        if let tabBarController = self.tabBarController {
+            let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: tabBarController.tabBar.frame.height, right: 0)
+            vehiclesTableView.contentInset = adjustForTabbarInsets
+            vehiclesTableView.scrollIndicatorInsets = adjustForTabbarInsets
+        }
         vehiclesTableView.register(VehiclesCell.self, forCellReuseIdentifier: VehiclesCell.reuseId)
         vehiclesTableView.dataSource = self
         vehiclesTableView.delegate = self
@@ -158,7 +168,7 @@ extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vehicle = vehicles[indexPath.row]
         selectedIndexPath = indexPath
-        vehiclesCoordinator?.navigateToVehicleDetails(vehicle: vehicle)
+        didSelectVehicle(vehicle: vehicle)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

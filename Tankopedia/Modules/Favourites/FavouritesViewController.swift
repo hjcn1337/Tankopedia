@@ -25,7 +25,17 @@ class FavouritesViewController: UIViewController, Coordinatable, FavouritesDispl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = tr("favourites.title")
+        
+        setup()
+        setupTableView()
         view.backgroundColor = .green
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter?.presentFavourites()
     }
     
     private func setup() {
@@ -34,6 +44,11 @@ class FavouritesViewController: UIViewController, Coordinatable, FavouritesDispl
     
     private func setupTableView() {
         favouritesTableView = UITableView(frame: view.bounds)
+        if let tabBarController = self.tabBarController {
+            let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: tabBarController.tabBar.frame.height, right: 0)
+            favouritesTableView.contentInset = adjustForTabbarInsets
+            favouritesTableView.scrollIndicatorInsets = adjustForTabbarInsets
+        }
         favouritesTableView.register(FavouritesCell.self, forCellReuseIdentifier: FavouritesCell.reuseId)
         favouritesTableView.dataSource = self
         favouritesTableView.delegate = self
@@ -46,7 +61,6 @@ class FavouritesViewController: UIViewController, Coordinatable, FavouritesDispl
     func displayFavourites(vehicles: [FavouriteVehicleModel]) {
         self.vehicles = vehicles
         self.favouritesTableView.reloadData()
-        print(#function)
     }
 }
 

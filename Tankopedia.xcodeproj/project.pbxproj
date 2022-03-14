@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BB2A713127DCE8C9005DA5CB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713027DCE8C9005DA5CB /* Colors.swift */; };
-		BB2A713327DCED05005DA5CB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713227DCED05005DA5CB /* AppCoordinator.swift */; };
 		BB2A713527DCF27D005DA5CB /* VehiclesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713427DCF27D005DA5CB /* VehiclesCoordinator.swift */; };
 		BB2A713827DCF412005DA5CB /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713727DCF412005DA5CB /* VehicleViewController.swift */; };
-		BB2A713A27DCF5E7005DA5CB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713927DCF5E7005DA5CB /* Coordinator.swift */; };
 		BB2A713D27DCF725005DA5CB /* VehicleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713C27DCF725005DA5CB /* VehicleCoordinator.swift */; };
 		BB2A713F27DD0BD3005DA5CB /* VehicleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A713E27DD0BD3005DA5CB /* VehicleService.swift */; };
 		BB2A714127DD0BDC005DA5CB /* VehiclePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A714027DD0BDC005DA5CB /* VehiclePresenter.swift */; };
@@ -29,6 +27,9 @@
 		BB6113B027DE279300B4244A /* FavouriteVehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6113AF27DE279300B4244A /* FavouriteVehicleModel.swift */; };
 		BB6113B227DE29C900B4244A /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6113B127DE29C900B4244A /* FavouritesCell.swift */; };
 		BB6113B727DE538F00B4244A /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6113B627DE538F00B4244A /* FavouritesCoordinator.swift */; };
+		BB6E7F2627DF055700C8111B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6E7F2527DF055700C8111B /* AppCoordinator.swift */; };
+		BB6E7F2827DF067100C8111B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6E7F2727DF067100C8111B /* Coordinator.swift */; };
+		BB6E7F2A27DF06D700C8111B /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6E7F2927DF06D700C8111B /* TabCoordinator.swift */; };
 		BB7D720327DC8782006DA90E /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720227DC8782006DA90E /* WebImageView.swift */; };
 		BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720427DC87A5006DA90E /* Constraints.swift */; };
 		BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D720627DC87C7006DA90E /* VehiclesService.swift */; };
@@ -68,10 +69,8 @@
 
 /* Begin PBXFileReference section */
 		BB2A713027DCE8C9005DA5CB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		BB2A713227DCED05005DA5CB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BB2A713427DCF27D005DA5CB /* VehiclesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesCoordinator.swift; sourceTree = "<group>"; };
 		BB2A713727DCF412005DA5CB /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
-		BB2A713927DCF5E7005DA5CB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BB2A713C27DCF725005DA5CB /* VehicleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCoordinator.swift; sourceTree = "<group>"; };
 		BB2A713E27DD0BD3005DA5CB /* VehicleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleService.swift; sourceTree = "<group>"; };
 		BB2A714027DD0BDC005DA5CB /* VehiclePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePresenter.swift; sourceTree = "<group>"; };
@@ -90,6 +89,9 @@
 		BB6113AF27DE279300B4244A /* FavouriteVehicleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVehicleModel.swift; sourceTree = "<group>"; };
 		BB6113B127DE29C900B4244A /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
 		BB6113B627DE538F00B4244A /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
+		BB6E7F2527DF055700C8111B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BB6E7F2727DF067100C8111B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BB6E7F2927DF06D700C8111B /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		BB7D720227DC8782006DA90E /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		BB7D720427DC87A5006DA90E /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		BB7D720627DC87C7006DA90E /* VehiclesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesService.swift; sourceTree = "<group>"; };
@@ -154,10 +156,11 @@
 		BB2A713B27DCF5F3005DA5CB /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				BB2A713927DCF5E7005DA5CB /* Coordinator.swift */,
-				BB2A713227DCED05005DA5CB /* AppCoordinator.swift */,
 				BBACA35727DBDB580082FED3 /* AppDelegate.swift */,
 				BBACA35927DBDB580082FED3 /* SceneDelegate.swift */,
+				BB6E7F2527DF055700C8111B /* AppCoordinator.swift */,
+				BB6E7F2727DF067100C8111B /* Coordinator.swift */,
+				BB6E7F2927DF06D700C8111B /* TabCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -459,22 +462,23 @@
 			files = (
 				BB2A713F27DD0BD3005DA5CB /* VehicleService.swift in Sources */,
 				BB2A714127DD0BDC005DA5CB /* VehiclePresenter.swift in Sources */,
-				BB2A713327DCED05005DA5CB /* AppCoordinator.swift in Sources */,
 				BB6113AA27DE246A00B4244A /* FavouritesService.swift in Sources */,
 				BB2A713827DCF412005DA5CB /* VehicleViewController.swift in Sources */,
 				BBACA35C27DBDB580082FED3 /* VehiclesViewController.swift in Sources */,
 				BB2A713127DCE8C9005DA5CB /* Colors.swift in Sources */,
 				BB7D720727DC87C7006DA90E /* VehiclesService.swift in Sources */,
+				BB6E7F2A27DF06D700C8111B /* TabCoordinator.swift in Sources */,
 				BB43F2AE27DE1FDB00328318 /* CoreDataStack.swift in Sources */,
+				BB6E7F2827DF067100C8111B /* Coordinator.swift in Sources */,
 				BB2A714727DD15F2005DA5CB /* VehicleView.swift in Sources */,
 				BBACA38D27DBDD0D0082FED3 /* StringLocalization.swift in Sources */,
 				BB2A714327DD0CAC005DA5CB /* VehicleResponse.swift in Sources */,
 				BB6113B727DE538F00B4244A /* FavouritesCoordinator.swift in Sources */,
-				BB2A713A27DCF5E7005DA5CB /* Coordinator.swift in Sources */,
 				BB6113AC27DE24E600B4244A /* FavouritesPresenter.swift in Sources */,
 				BB7D720527DC87A5006DA90E /* Constraints.swift in Sources */,
 				BBEFEBAF27DC9F3D007D7D92 /* VehiclesCell.swift in Sources */,
 				BB7D720F27DC8CE1006DA90E /* VehiclesPresenter.swift in Sources */,
+				BB6E7F2627DF055700C8111B /* AppCoordinator.swift in Sources */,
 				BB43F2A127DE0BB000328318 /* UIViewController+Extension.swift in Sources */,
 				BBACA35827DBDB580082FED3 /* AppDelegate.swift in Sources */,
 				BBACA39227DBDED80082FED3 /* VehiclesResponse.swift in Sources */,

@@ -9,20 +9,23 @@ import Foundation
 import UIKit
 
 final class FavouritesCoordinator: Coordinator {
+    var type: CoordinatorType?
     
     weak var parent: Coordinator?
     var childCoordinators: [Coordinator] = []
     
-    private let navController: UINavigationController
+    var navigationController: UINavigationController
     
-    init(navController: UINavigationController, parent: Coordinator? = nil) {
-        self.navController = navController
+    init(navigationController: UINavigationController = UINavigationController(), parent: Coordinator? = nil) {
+        self.navigationController = navigationController
         self.parent = parent
     }
     
     func start() {
         let viewController = FavouritesViewController()
+        navigationController.tabBarItem.title = tr("favourites.title")
+        navigationController.tabBarItem.image = UIImage(systemName: "star.fill")
         viewController.coordinator = self
-        navController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

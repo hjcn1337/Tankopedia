@@ -62,6 +62,10 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
         presenter?.presentVehicle(tankID: tankID)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.tabBarController?.tabBar.isHidden = true
+    }
     
     private func setup() {
         self.presenter = VehiclePresenter(view: self)

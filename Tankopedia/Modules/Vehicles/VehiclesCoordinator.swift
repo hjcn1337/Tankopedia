@@ -9,25 +9,28 @@ import Foundation
 import UIKit
 
 final class VehiclesCoordinator: Coordinator {
+    var type: CoordinatorType?
     
     weak var parent: Coordinator?
     var childCoordinators: [Coordinator] = []
     
-    private let navController: UINavigationController
+    var navigationController: UINavigationController
     
-    init(navController: UINavigationController, parent: Coordinator? = nil) {
-        self.navController = navController
+    init(navigationController: UINavigationController = UINavigationController(), parent: Coordinator? = nil) {
+        self.navigationController = navigationController
         self.parent = parent
     }
     
     func start() {
         let viewController = VehiclesViewController()
+        navigationController.tabBarItem.title = tr("tankopedia.title")
+        navigationController.tabBarItem.image = UIImage(systemName: "book.closed.fill")?.withTintColor(.green)
         viewController.coordinator = self
-        navController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func navigateToVehicleDetails(vehicle: VehicleModel) {
-        let vehicleCoordinator = VehicleCoordinator(navController: navController, parent: self, vehicle: vehicle)
+        let vehicleCoordinator = VehicleCoordinator(navigationController: navigationController, parent: self, vehicle: vehicle)
         vehicleCoordinator.start()
         childCoordinators.append(vehicleCoordinator)
     }

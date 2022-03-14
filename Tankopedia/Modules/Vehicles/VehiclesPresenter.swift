@@ -26,7 +26,6 @@ class VehiclesPresenter: VehiclesPresentationLogic {
     func presentVehicles(page: Int, completion: (() -> Void)? = nil) {
         var vehicles = [VehicleModel]()
         let favouriteVehicles = service.getFavourites()
-        print(favouriteVehicles)
         
         service.getVehicles(page: page) { [weak self] (result)  in
             switch result {

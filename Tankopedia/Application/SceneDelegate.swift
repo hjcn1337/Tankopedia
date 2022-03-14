@@ -17,10 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
-
-        appCoordinator = AppCoordinator(window: appWindow)
+        
+        appCoordinator = AppCoordinator.init(window: appWindow)
         appCoordinator.start()
-
+        
         window = appWindow
     }
 

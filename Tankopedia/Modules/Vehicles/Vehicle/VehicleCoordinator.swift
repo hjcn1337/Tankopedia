@@ -8,17 +8,18 @@
 import Foundation
 import UIKit
 
-final class VehicleCoordinator: Coordinator {
+final class VehicleCoordinator: Coordinator {    
+    var type: CoordinatorType?
     
     weak var parent: Coordinator?
     var childCoordinators: [Coordinator] = []
     
-    private let navController: UINavigationController
+    var navigationController: UINavigationController
     
     private let vehicle: VehicleModel
     
-    init(navController: UINavigationController, parent: Coordinator? = nil, vehicle: VehicleModel) {
-        self.navController = navController
+    init(navigationController: UINavigationController, parent: Coordinator? = nil, vehicle: VehicleModel) {
+        self.navigationController = navigationController
         self.parent = parent
         self.vehicle = vehicle
     }
@@ -26,9 +27,10 @@ final class VehicleCoordinator: Coordinator {
     func start() {
         let viewController = VehicleViewController()
         viewController.coordinator = self
-        viewController.delegate = navController.viewControllers.first as? VehicleDetailsFavouriteLogic
+        viewController.delegate = navigationController.viewControllers.first as? VehicleDetailsFavouriteLogic
         viewController.vehicle = vehicle
-        navController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
+        
     }
     
 }

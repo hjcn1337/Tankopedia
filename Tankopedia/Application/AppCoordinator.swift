@@ -1,38 +1,46 @@
 //
-//  Coordinator.swift
+//  AppCoordinator.swift
 //  Tankopedia
 //
-//  Created by Rostislav Ermachenkov on 12.03.2022.
+//  Created by Rostislav Ermachenkov on 14.03.2022.
 //
 
 import Foundation
 import UIKit
 
-final class AppCoordinator: NSObject, Coordinator {
+protocol AppCoordinatorProtocol: Coordinator {
+    func showMainFlow()
+}
+
+class AppCoordinator: NSObject, AppCoordinatorProtocol {
+    var type: CoordinatorType? = .app
     
     weak var parent: Coordinator?
-    var childCoordinators: [Coordinator] = []
     
-    private let navController: UINavigationController
-    private let window: UIWindow
+    var navigationController: UINavigationController
+    var window: UIWindow
     
-    init(navController: UINavigationController = UINavigationController(), window: UIWindow) {
-        self.navController = navController
+    var childCoordinators = [Coordinator]()
+        
+    required init(navigationController: UINavigationController = UINavigationController(), window: UIWindow) {
+        self.navigationController = navigationController
         self.window = window
     }
-    
+
     func start() {
-        navController.delegate = self
-        window.rootViewController = navController
+        showMainFlow()
+    }
+    
+    func showMainFlow() {
+        let tabCoordinator = TabCoordinator.init(parent: self)
+        tabCoordinator.start()
         
-        let vehiclesCoordinator = VehiclesCoordinator(navController: navController, parent: self)
-        vehiclesCoordinator.start()
+        window.rootViewController = tabCoordinator.tabBarController
         
         window.makeKeyAndVisible()
         
-        childCoordinators.append(vehiclesCoordinator)
+        childCoordinators.append(tabCoordinator)
     }
-    
 }
 
 extension AppCoordinator: UINavigationControllerDelegate {
@@ -48,4 +56,3 @@ extension AppCoordinator: UINavigationControllerDelegate {
         }
     }
 }
-
