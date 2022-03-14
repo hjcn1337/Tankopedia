@@ -17,7 +17,7 @@
 
 ### Technology Stack
 
-- UI Architecture is based on MVP
+- UI Architecture is based on MVP pattern
 - UIKit (without storyboards)
 - Core Data
 - URLSession
