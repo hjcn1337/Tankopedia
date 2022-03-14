@@ -28,7 +28,6 @@ class FavouritesViewController: UIViewController, Coordinatable, FavouritesDispl
         
         setup()
         setupTableView()
-        view.backgroundColor = .green
     }
     
     override func viewWillAppear(_ animated: Bool) {
