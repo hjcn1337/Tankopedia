@@ -17,7 +17,6 @@ protocol VehiclesViewDelegate {
 }
 
 class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic, VehiclesCellDelegate, VehicleDetailsFavouriteLogic {
-    
     var coordinator: Coordinator?
 
     private var vehiclesCoordinator: VehiclesCoordinator? { coordinator as? VehiclesCoordinator }

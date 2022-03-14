@@ -14,7 +14,6 @@ class TabCoordinator: NSObject, Coordinator {
     weak var parent: Coordinator?
     
     var type: CoordinatorType? = .tab
-    
         
     var childCoordinators: [Coordinator] = []
     

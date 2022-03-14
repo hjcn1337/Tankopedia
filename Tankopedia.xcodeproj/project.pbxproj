@@ -259,6 +259,7 @@
 		BB7D721027DC962C006DA90E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BB43F2B127DE206600328318 /* Models */,
 				BBACA38A27DBDC190082FED3 /* APIClient.swift */,
 				BB43F2AD27DE1FDB00328318 /* CoreDataStack.swift */,
 				BB43F2AF27DE200500328318 /* CoreDataManager.swift */,
@@ -289,7 +290,6 @@
 		BBACA35627DBDB580082FED3 /* Tankopedia */ = {
 			isa = PBXGroup;
 			children = (
-				BB43F2B127DE206600328318 /* Models */,
 				BB2A713B27DCF5F3005DA5CB /* Application */,
 				BB43F2A927DE1F3400328318 /* Modules */,
 				BB7D721027DC962C006DA90E /* Services */,

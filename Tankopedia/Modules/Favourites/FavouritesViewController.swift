@@ -13,7 +13,6 @@ protocol FavouritesDisplayLogic: AnyObject {
 }
 
 class FavouritesViewController: UIViewController, Coordinatable, FavouritesDisplayLogic {
-    
     weak var coordinator: Coordinator?
     
     var presenter: FavouritesPresentationLogic?
@@ -69,7 +68,6 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vehicles.count
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavouritesCell.reuseId, for: indexPath) as! FavouritesCell
