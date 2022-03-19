@@ -82,8 +82,8 @@ class VehicleView: UIView {
     let favoriteButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
-        button.tintColor = .favorite
+        button.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
+        button.tintColor = .favourites
         return button
     }()
     

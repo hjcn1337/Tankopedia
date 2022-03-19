@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol VehiclesCellDelegate: AnyObject {
-    func favoriteAction(cell: VehiclesCell)
+    func favouritesAction(cell: VehiclesCell)
 }
 
 class VehiclesCell: UITableViewCell {
@@ -70,11 +70,11 @@ class VehiclesCell: UITableViewCell {
         return imageView
     }()
     
-    let favoriteButton: UIButton = {
+    let favouritesButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
-        button.tintColor = .favorite
+        button.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
+        button.tintColor = .favourites
         return button
     }()
     
@@ -84,20 +84,20 @@ class VehiclesCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
-        favoriteButton.addTarget(self, action: #selector(favoriteTouch), for: .touchUpInside)
+        favouritesButton.addTarget(self, action: #selector(favouritesTouch), for: .touchUpInside)
         
         overlayFirstLayer()
         overlayCardView()
     }
     
-    @objc func favoriteTouch() {
-        delegate?.favoriteAction(cell: self)
+    @objc func favouritesTouch() {
+        delegate?.favouritesAction(cell: self)
     }
     
     private func overlayCardView() {
         cellView.addSubview(vehicleImageView)
         cellView.addSubview(titleLabel)
-        cellView.addSubview(favoriteButton)
+        cellView.addSubview(favouritesButton)
         cellView.addSubview(descriptionLabel)
         cellView.addSubview(priceTitleLabel)
         cellView.addSubview(priceLabel)
@@ -110,13 +110,13 @@ class VehiclesCell: UITableViewCell {
         
         titleLabel.topAnchor.constraint(equalTo: vehicleImageView.topAnchor, constant: 10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: vehicleImageView.trailingAnchor, constant: 10).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor, constant: -30).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: favouritesButton.leadingAnchor, constant: -30).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         titleLabel.numberOfLines = 0
         
         priceTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         priceTitleLabel.leadingAnchor.constraint(equalTo: vehicleImageView.trailingAnchor, constant: 10).isActive = true
-        priceTitleLabel.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor, constant: -30).isActive = true
+        priceTitleLabel.trailingAnchor.constraint(equalTo: favouritesButton.leadingAnchor, constant: -30).isActive = true
         priceTitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         priceTypeImageView.topAnchor.constraint(equalTo: priceTitleLabel.bottomAnchor, constant: 4).isActive = true
@@ -126,13 +126,13 @@ class VehiclesCell: UITableViewCell {
         
         priceLabel.topAnchor.constraint(equalTo: priceTitleLabel.bottomAnchor, constant: 4).isActive = true
         priceLabel.leadingAnchor.constraint(equalTo: priceTypeImageView.trailingAnchor, constant: 2).isActive = true
-        priceLabel.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor, constant: -30).isActive = true
+        priceLabel.trailingAnchor.constraint(equalTo: favouritesButton.leadingAnchor, constant: -30).isActive = true
         priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        favoriteButton.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 40).isActive = true
-        favoriteButton.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: 10).isActive = true
-        favoriteButton.centerYAnchor.constraint(equalTo: vehicleImageView.centerYAnchor).isActive = true
-        favoriteButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        favouritesButton.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 40).isActive = true
+        favouritesButton.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: 10).isActive = true
+        favouritesButton.centerYAnchor.constraint(equalTo: vehicleImageView.centerYAnchor).isActive = true
+        favouritesButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
         descriptionLabel.topAnchor.constraint(equalTo: vehicleImageView.bottomAnchor, constant: 10).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10).isActive = true
@@ -158,9 +158,9 @@ class VehiclesCell: UITableViewCell {
     
     func set(item: VehicleModel) {
         if item.isFavourite {
-            favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+            favouritesButton.setBackgroundImage(Constants.favouritesTrueBtnImg, for: .normal)
         } else {
-            favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+            favouritesButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
         }
         
         vehicleImageView.set(imageURL: item.imageUrlString)
@@ -189,6 +189,6 @@ enum Constants {
     
     static let cellInsets = UIEdgeInsets(top: 0, left: 8, bottom: 12, right: 24)
     static let cellHeight: CGFloat = 150
-    static let isFavoriteTrueBtnImg = UIImage(systemName: "star.fill")
-    static let isFavoriteFalseBtnImg = UIImage(systemName: "star")
+    static let favouritesTrueBtnImg = UIImage(systemName: "star.fill")
+    static let favouritesFalseBtnImg = UIImage(systemName: "star")
 }

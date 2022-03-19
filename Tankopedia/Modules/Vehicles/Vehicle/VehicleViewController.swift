@@ -13,8 +13,8 @@ protocol VehicleDisplayLogic: AnyObject {
     func displayError(error: APIError)
 }
 
-protocol VehicleDetailsFavouriteLogic: AnyObject {
-    func vehicleDetailsFavouritesAction(vehicle: VehicleModel)
+protocol VehicleDetailsFavouritesLogic: AnyObject {
+    func vehicleDetailsFavouritesAction(vehicle: VehicleModel?)
 }
 
 class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogic, VehicleViewDelegate {
@@ -34,10 +34,12 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     
     weak var coordinator: Coordinator?
     
-    weak var delegate: VehicleDetailsFavouriteLogic?
+    weak var delegate: VehicleDetailsFavouritesLogic?
     
     private var presenter: VehiclePresenter?
     var vehicle: VehicleModel?
+    
+    var needToUpdateVehicle = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,13 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
         navigationController?.tabBarController?.tabBar.isHidden = true
     }
     
+    deinit {
+        if needToUpdateVehicle {
+            delegate?.vehicleDetailsFavouritesAction(vehicle: vehicle)
+        }
+        
+    }
+    
     private func setup() {
         self.presenter = VehiclePresenter(view: self)
     }
@@ -83,9 +92,9 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
             self.vehicleView.weightLabel.text = "\(vehicle.weight)"
             self.vehicleView.profileIDLabel.text = vehicle.profileID
             if let isFavourite = self.vehicle?.isFavourite, isFavourite {
-                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+                self.vehicleView.favoriteButton.setBackgroundImage(Constants.favouritesTrueBtnImg, for: .normal)
             } else {
-                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+                self.vehicleView.favoriteButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
             }
             
             self.vehicleView.favoriteButton.isHidden = false
@@ -100,13 +109,13 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
     }
     
     func favouritesAction() {
-        if let vehicle = vehicle {
-            if vehicle.isFavourite {
-                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
-            } else {
-                self.vehicleView.favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
-            }
-            delegate?.vehicleDetailsFavouritesAction(vehicle: vehicle)
+        if vehicle?.isFavourite ?? false {
+            self.vehicleView.favoriteButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
+        } else {
+            self.vehicleView.favoriteButton.setBackgroundImage(Constants.favouritesTrueBtnImg, for: .normal)
         }
+        vehicle?.isFavourite.toggle()
+        needToUpdateVehicle.toggle()
+        
     }
 }

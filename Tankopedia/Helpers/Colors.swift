@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    static let favorite = UIColor(named: "favorite")
+    static let favourites = UIColor(named: "favourites")
 }
