@@ -16,7 +16,7 @@ class WebImageView: UIImageView {
         
         currentUrlString = imageURL
         
-        guard let imageURL = imageURL, let url = URL(string: imageURL) else {
+        guard let currentUrlString = currentUrlString, let url = URL(string: currentUrlString) else {
             self.image = nil
             return }
         
