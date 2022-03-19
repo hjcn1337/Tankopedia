@@ -17,7 +17,7 @@
 "loading.title" = "Loading...";
 "error.title" = "Error";
 "error.loading_error" = "Loading error. Please retry later.";
-"error.method_not_found" = "METHOD NOT FOUND";
+"error.params_not_found" = "Params not found";
 "error.invaild_url" = "Invalid url";
 "error.unable_to_parse" = "Unable to parse response.";
 "error.request_failed" = "Request failed";

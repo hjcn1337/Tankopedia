@@ -16,7 +16,6 @@ public struct VehiclesResponse: Decodable {
 struct Error: Codable {
     let message: String
     let code: Int
-    let value: String
 }
 
 public struct VehiclesItem: Codable {

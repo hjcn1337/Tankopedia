@@ -17,7 +17,7 @@
 "loading.title" = "Загрузка...";
 "error.title" = "Ошибка";
 "error.loading_error" = "Ошибка загрузки. Повторите попытку позже.";
-"error.method_not_found" = "Метод не найден";
+"error.params_not_found" = "Параметры не найдены";
 "error.invaild_url" = "Неправильный URL запроса";
 "error.unable_to_parse" = "Не удалось распознать ответ.";
 "error.request_failed" = "Ошибка запроса";

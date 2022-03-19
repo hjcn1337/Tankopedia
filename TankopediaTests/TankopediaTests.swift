@@ -18,19 +18,53 @@ class TankopediaTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    func test_GetVehicles_WhenPageIsFirst_ShouldReturnVehicles() throws {
+        var vehicles: [VehiclesItem]?
+        var err: APIError?
+        
+        let promise = expectation(description: "Got some vehicles")
+        
+        let vehiclesService = VehiclesService()
+        vehiclesService.getVehicles(page: 1, completion: { result in
+            switch result {
+            case .success(let result):
+                vehicles = result
+                promise.fulfill()
+            case .failure(let error):
+                err = error
+                XCTFail("\(String(describing: err?.errorDescription))")
+            }
+        })
+        
+        wait(for: [promise], timeout: 5)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertNotNil(vehicles)
+        XCTAssertNil(err)
+    }
+    
+    func test_GetVehicles_WhenPageIsZero_ShouldReturnError() throws {
+        var vehicles: [VehiclesItem]?
+        var err = APIError.paramsNotFound
+        
+        let promise = expectation(description: err.errorDescription ?? "")
+        
+        let vehiclesService = VehiclesService()
+        vehiclesService.getVehicles(page: 0, completion: { result in
+            switch result {
+            case .success(let result):
+                vehicles = result
+                XCTFail("Got some vehicles")
+            case .failure(let error):
+                err = error
+                promise.fulfill()
+            }
+        })
+        
+        wait(for: [promise], timeout: 5)
+
+        XCTAssertNil(vehicles)
+        XCTAssertNotNil(err)
+        XCTAssert(err.errorDescription == promise.description)
     }
 
 }

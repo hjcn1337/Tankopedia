@@ -66,7 +66,7 @@ public enum APIError: String, LocalizedError {
     case invalidURL
     case requestFailed
     case decodingFailure
-    case methodNotFound
+    case paramsNotFound
     
     public var errorDescription: String? {
         switch self {
@@ -76,8 +76,8 @@ public enum APIError: String, LocalizedError {
             return tr("error.request_failed")
         case .decodingFailure:
             return tr("error.unable_to_parse")
-        case .methodNotFound:
-            return tr("error.method_not_found")
+        case .paramsNotFound:
+            return tr("error.params_not_found")
         }
         
     }
@@ -154,7 +154,7 @@ extension APIClient {
                     } else if let error = response.body.error {
                         if error.code == 404 {
                             DispatchQueue.main.async {
-                                completion?(.failure(.methodNotFound))
+                                completion?(.failure(.paramsNotFound))
                             }
                         }
                     }
@@ -192,7 +192,7 @@ extension APIClient {
                     } else if let error = response.body.error {
                         if error.code == 404 {
                             DispatchQueue.main.async {
-                                completion?(.failure(.methodNotFound))
+                                completion?(.failure(.paramsNotFound))
                             }
                         }
                     }
