@@ -17,7 +17,7 @@ protocol VehicleDetailsFavouritesLogic: AnyObject {
     func vehicleDetailsFavouritesAction(vehicle: VehicleModel?)
 }
 
-class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogic, VehicleViewDelegate {
+final class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogic {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +107,9 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
+}
+
+extension VehicleViewController: VehicleViewDelegate {
     func favouritesAction() {
         if vehicle?.isFavourite ?? false {
             self.vehicleView.favoriteButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
@@ -116,6 +118,5 @@ class VehicleViewController: UIViewController, Coordinatable, VehicleDisplayLogi
         }
         vehicle?.isFavourite.toggle()
         needToUpdateVehicle.toggle()
-        
     }
 }

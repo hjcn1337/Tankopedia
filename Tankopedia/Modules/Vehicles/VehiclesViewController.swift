@@ -16,7 +16,7 @@ protocol VehiclesViewDelegate {
     func didSelectVehicle(vehicle: VehicleModel)
 }
 
-class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic, VehiclesCellDelegate, VehicleDetailsFavouritesLogic {
+final class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLogic {
     var coordinator: Coordinator?
 
     private var vehiclesCoordinator: VehiclesCoordinator? { coordinator as? VehiclesCoordinator }
@@ -131,40 +131,6 @@ class VehiclesViewController: UIViewController, Coordinatable, VehiclesDisplayLo
         self.isRefreshRequested = false
         self.refreshControl.endRefreshing()
     }
-    
-    func favouritesAction(cell: VehiclesCell) {
-        guard let indexPath = vehiclesTableView.indexPath(for: cell) else { return }
-        let vehicle = vehicles[indexPath.row]
-        if vehicle.isFavourite {
-            cell.favouritesButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
-            vehicles[indexPath.row].isFavourite = false
-        } else {
-            cell.favouritesButton.setBackgroundImage(Constants.favouritesTrueBtnImg, for: .normal)
-            vehicles[indexPath.row].isFavourite = true
-        }
-        presenter?.favouritesAction(vehicle: vehicle)
-    }
-    
-    func vehicleDetailsFavouritesAction(vehicle: VehicleModel?) {
-        guard
-            let vehicle = vehicle,
-            let selectedIndexPath = selectedIndexPath,
-            let cell = vehiclesTableView.cellForRow(at: selectedIndexPath) as? VehiclesCell
-        else { return }
-
-        presenter?.favouritesAction(vehicle: vehicles[selectedIndexPath.row])
-        
-        if vehicle.isFavourite {
-            cell.favouritesButton.setBackgroundImage(Constants.favouritesTrueBtnImg, for: .normal)
-            vehicles[selectedIndexPath.row].isFavourite = true
-        } else {
-            cell.favouritesButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
-            vehicles[selectedIndexPath.row].isFavourite = false
-            
-        }
-        
-    }
-    
 }
 
 extension VehiclesViewController: UITableViewDataSource, UITableViewDelegate {
@@ -190,5 +156,40 @@ extension VehiclesViewController: VehiclesViewDelegate {
     
     func didSelectVehicle(vehicle: VehicleModel) {
         vehiclesCoordinator?.navigateToVehicleDetails(vehicle: vehicle)
+    }
+}
+
+extension VehiclesViewController: VehiclesCellDelegate {
+    func favouritesAction(cell: VehiclesCell) {
+        guard let indexPath = vehiclesTableView.indexPath(for: cell) else { return }
+        let vehicle = vehicles[indexPath.row]
+        if vehicle.isFavourite {
+            cell.favouritesButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
+            vehicles[indexPath.row].isFavourite = false
+        } else {
+            cell.favouritesButton.setBackgroundImage(Constants.favouritesTrueBtnImg, for: .normal)
+            vehicles[indexPath.row].isFavourite = true
+        }
+        presenter?.favouritesAction(vehicle: vehicle)
+    }
+}
+
+extension VehiclesViewController: VehicleDetailsFavouritesLogic {
+    func vehicleDetailsFavouritesAction(vehicle: VehicleModel?) {
+        guard
+            let vehicle = vehicle,
+            let selectedIndexPath = selectedIndexPath,
+            let cell = vehiclesTableView.cellForRow(at: selectedIndexPath) as? VehiclesCell
+        else { return }
+
+        presenter?.favouritesAction(vehicle: vehicles[selectedIndexPath.row])
+        
+        if vehicle.isFavourite {
+            cell.favouritesButton.setBackgroundImage(Constants.favouritesTrueBtnImg, for: .normal)
+            vehicles[selectedIndexPath.row].isFavourite = true
+        } else {
+            cell.favouritesButton.setBackgroundImage(Constants.favouritesFalseBtnImg, for: .normal)
+            vehicles[selectedIndexPath.row].isFavourite = false
+        }
     }
 }
