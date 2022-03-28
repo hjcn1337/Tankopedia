@@ -1,6 +1,6 @@
 # Tankopedia
 
-### Mobile app working with [World Of Tanks API](developers.wargaming.net)
+### Mobile app working with [World Of Tanks API](https://developers.wargaming.net)
 
 ### Features
 
